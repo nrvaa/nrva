@@ -1,5 +1,5 @@
 ---
-import { ClientRouter } from 'astro:transitions';
+import { ClientRouter } from "astro:transitions";
 const { title = "NRVA", description = "NRVA Electronic Music" } = Astro.props;
 ---
 
@@ -36,7 +36,7 @@ const { title = "NRVA", description = "NRVA Electronic Music" } = Astro.props;
     >
       <!-- Subtle grid overlay -->
       <div
-        class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]"
+        class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.001)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.001)_1px,transparent_1px)] bg-[size:60px_60px]"
       >
       </div>
 
@@ -52,7 +52,7 @@ const { title = "NRVA", description = "NRVA Electronic Music" } = Astro.props;
             cy="100"
             r="90"
             stroke="currentColor"
-            stroke-width="0.3"
+            stroke-width="0.5"
             stroke-dasharray="2 4"
             fill="none"></circle>
           <circle
@@ -60,14 +60,14 @@ const { title = "NRVA", description = "NRVA Electronic Music" } = Astro.props;
             cy="100"
             r="70"
             stroke="currentColor"
-            stroke-width="0.3"
+            stroke-width="0.7"
             fill="none"></circle>
           <circle
             cx="100"
             cy="100"
             r="50"
             stroke="currentColor"
-            stroke-width="0.3"
+            stroke-width="0.7"
             stroke-dasharray="10 5"
             fill="none"></circle>
           <line
@@ -76,28 +76,28 @@ const { title = "NRVA", description = "NRVA Electronic Music" } = Astro.props;
             x2="190"
             y2="100"
             stroke="currentColor"
-            stroke-width="0.3"></line>
+            stroke-width="0.6"></line>
           <line
             x1="100"
             y1="10"
             x2="100"
             y2="190"
             stroke="currentColor"
-            stroke-width="0.3"></line>
+            stroke-width="0.6"></line>
           <line
             x1="36"
             y1="36"
             x2="164"
             y2="164"
             stroke="currentColor"
-            stroke-width="0.3"></line>
+            stroke-width="0.6"></line>
           <line
             x1="36"
             y1="164"
             x2="164"
             y2="36"
             stroke="currentColor"
-            stroke-width="0.3"></line>
+            stroke-width="0.6"></line>
         </svg>
       </div>
       <div class="parallax-layer parallax-layer-2">
@@ -113,7 +113,7 @@ const { title = "NRVA", description = "NRVA Electronic Music" } = Astro.props;
             width="160"
             height="160"
             stroke="currentColor"
-            stroke-width="0.3"
+            stroke-width="0.6"
             fill="none"></rect>
           <rect
             x="40"
@@ -121,7 +121,7 @@ const { title = "NRVA", description = "NRVA Electronic Music" } = Astro.props;
             width="120"
             height="120"
             stroke="currentColor"
-            stroke-width="0.3"
+            stroke-width="0.6"
             stroke-dasharray="5 5"
             fill="none"></rect>
           <circle
@@ -129,7 +129,7 @@ const { title = "NRVA", description = "NRVA Electronic Music" } = Astro.props;
             cy="100"
             r="30"
             stroke="currentColor"
-            stroke-width="0.3"
+            stroke-width="0.6"
             fill="none"></circle>
           <path
             d="M 0,100 L 200,100 M 100,0 L 100,200"
@@ -227,7 +227,7 @@ const { title = "NRVA", description = "NRVA Electronic Music" } = Astro.props;
   .parallax-shape {
     width: 100%;
     height: 100%;
-    color: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.15); /* Ditingkatkan dari 0.04 ke 0.15 agar lebih terang */
     animation: rotateSlow 80s linear infinite;
   }
   .parallax-shape.shape-reverse {
