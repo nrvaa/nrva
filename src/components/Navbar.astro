@@ -5,7 +5,10 @@ export interface Props {
 const { isCorePage = false } = Astro.props;
 ---
 
-<nav class="nav-pill glass-card" aria-label="Primary">
+<nav
+  class="nav-pill bg-white/10 backdrop-blur-lg border border-white/20"
+  aria-label="Primary"
+>
   <a href="/" class="nav-wordmark">
     <img
       src="/Both white.svg"
@@ -15,16 +18,18 @@ const { isCorePage = false } = Astro.props;
   </a>
   <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" hidden />
   <div class="nav-links">
-    {isCorePage ? (
-      <a href="/">Home</a>
-    ) : (
-      <>
-        <a href="/#latest">Latest</a>
-        <a href="/#about">About</a>
-        <a href="/#discography">Discography</a>
-        <a href="/core">Core</a>
-      </>
-    )}
+    {
+      isCorePage ? (
+        <a href="/">Home</a>
+      ) : (
+        <>
+          <a href="/#latest">Latest</a>
+          <a href="/#about">About</a>
+          <a href="/#discography">Discography</a>
+          <a href="/core">Core</a>
+        </>
+      )
+    }
   </div>
   <div class="nav-actions">
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
@@ -37,50 +42,50 @@ const { isCorePage = false } = Astro.props;
 </nav>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  document.addEventListener("astro:page-load", () => {
     // Theme Toggle Logic
     const themeToggle = document.getElementById("theme-toggle");
-  const darkIcon = document.querySelector(".dark-icon");
-  const lightIcon = document.querySelector(".light-icon");
+    const darkIcon = document.querySelector(".dark-icon");
+    const lightIcon = document.querySelector(".light-icon");
 
-  function updateIcons(theme) {
-    if (theme === "light") {
-      darkIcon.style.display = "none";
-      lightIcon.style.display = "block";
-    } else {
-      darkIcon.style.display = "block";
-      lightIcon.style.display = "none";
+    function updateIcons(theme) {
+      if (theme === "light") {
+        darkIcon.style.display = "none";
+        lightIcon.style.display = "block";
+      } else {
+        darkIcon.style.display = "block";
+        lightIcon.style.display = "none";
+      }
     }
-  }
 
-  // Check saved theme or system preference
-  let currentTheme = localStorage.getItem("theme");
-  if (!currentTheme) {
-    currentTheme = window.matchMedia("(prefers-color-scheme: light)").matches
-      ? "light"
-      : "dark";
-  }
+    // Check saved theme or system preference
+    let currentTheme = localStorage.getItem("theme");
+    if (!currentTheme) {
+      currentTheme = window.matchMedia("(prefers-color-scheme: light)").matches
+        ? "light"
+        : "dark";
+    }
 
-  if (currentTheme === "light") {
-    document.documentElement.setAttribute("data-theme", "light");
-  }
-  updateIcons(currentTheme);
-
-  // Toggle theme
-  themeToggle?.addEventListener("click", () => {
-    const isLight =
-      document.documentElement.getAttribute("data-theme") === "light";
-    const newTheme = isLight ? "dark" : "light";
-
-    if (newTheme === "light") {
+    if (currentTheme === "light") {
       document.documentElement.setAttribute("data-theme", "light");
-    } else {
-      document.documentElement.removeAttribute("data-theme");
     }
+    updateIcons(currentTheme);
 
-    localStorage.setItem("theme", newTheme);
-    updateIcons(newTheme);
-  });
+    // Toggle theme
+    themeToggle?.addEventListener("click", () => {
+      const isLight =
+        document.documentElement.getAttribute("data-theme") === "light";
+      const newTheme = isLight ? "dark" : "light";
+
+      if (newTheme === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+      }
+
+      localStorage.setItem("theme", newTheme);
+      updateIcons(newTheme);
+    });
   });
 </script>
 
