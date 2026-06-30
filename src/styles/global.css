@@ -13,6 +13,7 @@
 
 /* Base CSS variables copied from nrvaastro for the Navbar */
 :root {
+	color-scheme: dark;
 	/* Default Dark Mode */
 	--color-paper: #111844;
 	--color-paper-2: #18225e;
@@ -30,6 +31,7 @@
 	--color-base-300: #080c22;
 	--color-primary: #7288AE;
 	--color-secondary: #7288AE;
+	--color-base-content: var(--color-ink);
 
 	/* Neumorphic Shadows (Dark) */
 	--shadow-light: rgba(255, 255, 255, 0.05);
@@ -77,6 +79,7 @@
 }
 
 :root[data-theme="light"] {
+	color-scheme: light;
 	/* Light Mode */
 	--color-paper: #FFF6F6;
 	--color-paper-2: #f2e8e8;
@@ -94,6 +97,7 @@
 	--color-base-300: #e8dede;
 	--color-primary: #DB1A1A;
 	--color-secondary: #DB1A1A;
+	--color-base-content: var(--color-ink);
 
 	/* Neumorphic Shadows (Light) */
 	--shadow-light: #ffffff;

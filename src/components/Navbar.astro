@@ -68,6 +68,8 @@ const { isCorePage = false } = Astro.props;
 
     if (currentTheme === "light") {
       document.documentElement.setAttribute("data-theme", "light");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
     }
     updateIcons(currentTheme);
 
@@ -80,7 +82,7 @@ const { isCorePage = false } = Astro.props;
       if (newTheme === "light") {
         document.documentElement.setAttribute("data-theme", "light");
       } else {
-        document.documentElement.removeAttribute("data-theme");
+        document.documentElement.setAttribute("data-theme", "dark");
       }
 
       localStorage.setItem("theme", newTheme);
