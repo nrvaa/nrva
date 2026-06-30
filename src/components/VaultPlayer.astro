@@ -1,0 +1,358 @@
+---
+export interface Props {
+  trackTitle: string;
+  trackArtist: string;
+  audioSrc: string;
+  prevUrl?: string;
+  nextUrl?: string;
+}
+const { trackTitle, trackArtist, audioSrc, prevUrl, nextUrl } = Astro.props;
+---
+
+<div
+  class="glass-card rounded-2xl w-full md:w-3/4 lg:w-1/2 max-w-4xl mx-auto p-6 sm:p-12 text-center relative group overflow-hidden transition-all duration-700 hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_20px_50px_rgba(13,188,121,0.15)] hover:-translate-y-2"
+>
+  <!-- Subtle Grid & Gradient Background -->
+  <div
+    class="absolute inset-0 z-[-1] opacity-5 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none transition-opacity duration-700 group-hover:opacity-10"
+  >
+  </div>
+  <div
+    class="absolute -top-32 -right-32 w-64 h-64 bg-primary/5 rounded-full blur-[80px] group-hover:bg-primary/10 transition-colors duration-700"
+  >
+  </div>
+
+  <!-- Header Section -->
+  <div
+    class="flex justify-between items-center mb-12 border-b border-base-content/10 pb-4 relative z-10"
+  >
+    <div class="flex items-center gap-3">
+      <div
+        class="w-2 h-2 rounded-full bg-[#0dbc79] animate-pulse"
+        id="statusDot"
+      >
+      </div>
+      <span
+        class="font-mono text-xs tracking-[0.2em] text-[#0dbc79] uppercase transition-colors"
+        id="trackStatus"
+      >
+        STANDBY
+      </span>
+    </div>
+    <div
+      class="font-mono text-[10px] tracking-widest text-base-content/40 uppercase"
+    >
+      VAULT SEC_001
+    </div>
+  </div>
+
+  <div class="mt-8 mb-12 relative z-10">
+    <h1
+      class="text-md sm:text-lg font-black uppercase tracking-tighter mb-4 text-base-content"
+    >
+      {trackTitle}
+    </h1>
+    <p
+      class="font-mono text-primary text-sm tracking-widest uppercase opacity-80"
+    >
+      {trackArtist}
+    </p>
+  </div>
+
+  <div
+    class="controls-container flex flex-col items-center gap-10 relative z-10"
+  >
+    <div class="flex items-center gap-6">
+      {prevUrl ? (
+        <a href={prevUrl} class="btn btn-circle btn-ghost text-base-content/50 hover:text-primary transition-all hover:scale-110" aria-label="Previous Track">
+          <i class="fas fa-backward-step"></i>
+        </a>
+      ) : (
+        <div class="w-12 h-12"></div>
+      )}
+
+      <button
+        id="restartBtn"
+        class="btn btn-circle btn-outline border-base-content/20 text-base-content/70 hover:bg-base-content hover:text-base-100 hover:border-base-content transition-all"
+        aria-label="Restart"
+      >
+        <i class="fas fa-rotate-left"></i>
+      </button>
+
+      <button
+        id="playBtn"
+        class="btn btn-circle btn-lg border-none bg-base-content text-base-100 hover:scale-110 hover:bg-primary hover:text-primary-content transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(13,188,121,0.4)]"
+        aria-label="Play"
+      >
+        <i class="fas fa-play ml-1 text-xl" id="playIcon"></i>
+      </button>
+
+      {nextUrl ? (
+        <a href={nextUrl} class="btn btn-circle btn-ghost text-base-content/50 hover:text-primary transition-all hover:scale-110" aria-label="Next Track">
+          <i class="fas fa-forward-step"></i>
+        </a>
+      ) : (
+        <div class="w-12 h-12"></div>
+      )}
+    </div>
+
+    <div
+      class="w-full max-w-lg flex items-center gap-6 font-mono text-xs text-base-content/70"
+    >
+      <span id="currentTime" class="w-12 text-right opacity-80">0:00</span>
+      <input
+        type="range"
+        id="progressBar"
+        class="skeuo-range flex-1"
+        value="0"
+        max="100"
+        step="0.1"
+      />
+      <span id="duration" class="w-12 text-left opacity-80">0:00</span>
+    </div>
+  </div>
+
+  <!-- Audio Waveform -->
+  <div
+    class="waveform-wrap h-24 mt-14 flex justify-center items-end gap-[3px] opacity-20 transition-all duration-700 relative z-10"
+    id="waveformWrap"
+  >
+    {
+      Array.from({ length: 64 }).map(() => (
+        <div class="wave-bar w-1 bg-base-content/40 rounded-none origin-bottom transition-all duration-150" />
+      ))
+    }
+  </div>
+
+  <audio id="audioData" src={audioSrc} preload="metadata"></audio>
+</div>
+
+<style>
+  .waveform-wrap.playing {
+    opacity: 0.8;
+  }
+  .waveform-wrap.playing .wave-bar {
+    animation: wave var(--anim-duration, 1s) ease-in-out infinite alternate;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 12px rgba(var(--color-primary-rgb), 0.5);
+  }
+  @keyframes wave {
+    0% {
+      transform: scaleY(0.1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+  .glass-card {
+    background: linear-gradient(
+      135deg,
+      rgba(var(--color-base-100-rgb), 0.4) 0%,
+      rgba(var(--color-base-100-rgb), 0.1) 100%
+    );
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.01);
+    border-right: 1px solid rgba(255, 255, 255, 0.01);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.15),
+      inset 0 -1px 1px rgba(0, 0, 0, 0.3),
+      inset 0 20px 40px rgba(255, 255, 255, 0.03),
+      0 16px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  /* ── SKEUOMORPHIC SLIDER ── */
+  .skeuo-range {
+    -webkit-appearance: none;
+    height: 10px;
+    border-radius: 8px;
+    background: linear-gradient(
+      to right,
+      var(--color-primary) 0%,
+      var(--color-primary) var(--val, 0%),
+      rgba(0, 0, 0, 0.8) var(--val, 0%),
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    box-shadow:
+      inset 0 2px 6px rgba(0, 0, 0, 0.9),
+      0 1px 1px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    outline: none;
+    position: relative;
+  }
+
+  /* Webkit Thumb */
+  .skeuo-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 34px;
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 46%,
+        #0dbc79 46%,
+        #0dbc79 54%,
+        transparent 54%
+      ),
+      linear-gradient(to right, #3a4556, #1c2331, #3a4556);
+    border-radius: 4px;
+    border: 1px solid #080c22;
+    box-shadow:
+      inset 0 2px 2px rgba(255, 255, 255, 0.2),
+      inset 0 -2px 3px rgba(0, 0, 0, 0.6),
+      0 6px 12px rgba(0, 0, 0, 0.6),
+      0 0 15px rgba(13, 188, 121, 0.3);
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+  .skeuo-range::-webkit-slider-thumb:active {
+    transform: scale(0.95);
+  }
+
+  /* Firefox Thumb */
+  .skeuo-range::-moz-range-thumb {
+    width: 22px;
+    height: 34px;
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 46%,
+        #0dbc79 46%,
+        #0dbc79 54%,
+        transparent 54%
+      ),
+      linear-gradient(to right, #3a4556, #1c2331, #3a4556);
+    border-radius: 4px;
+    border: 1px solid #080c22;
+    box-shadow:
+      inset 0 2px 2px rgba(255, 255, 255, 0.2),
+      inset 0 -2px 3px rgba(0, 0, 0, 0.6),
+      0 6px 12px rgba(0, 0, 0, 0.6),
+      0 0 15px rgba(13, 188, 121, 0.3);
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const audio = document.getElementById("audioData") as HTMLAudioElement;
+    const playBtn = document.getElementById("playBtn");
+    const playIcon = document.getElementById("playIcon");
+    const progressBar = document.getElementById(
+      "progressBar",
+    ) as HTMLInputElement;
+    const currentTimeEl = document.getElementById("currentTime");
+    const durationEl = document.getElementById("duration");
+    const trackStatus = document.getElementById("trackStatus");
+    const waveWrap = document.getElementById("waveformWrap");
+    const restartBtn = document.getElementById("restartBtn");
+
+    if (!audio || !playBtn) return;
+
+    let isPlaying = false;
+
+    // Randomize waveform durations and heights
+    if (waveWrap) {
+      const bars = waveWrap.querySelectorAll(".wave-bar");
+      bars.forEach((bar) => {
+        (bar as HTMLElement).style.setProperty(
+          "--anim-duration",
+          `${0.2 + Math.random() * 0.6}s`,
+        );
+        (bar as HTMLElement).style.height = `${10 + Math.random() * 90}%`;
+      });
+    }
+
+    function formatTime(s) {
+      if (isNaN(s)) return "0:00";
+      let m = Math.floor(s / 60),
+        sec = Math.floor(s % 60);
+      return `${m}:${sec < 10 ? "0" + sec : sec}`;
+    }
+
+    function setPlaying(play) {
+      isPlaying = play;
+      if (play) {
+        audio.play();
+        if (playIcon) {
+          playIcon.className = "fas fa-pause text-xl";
+          playIcon.classList.remove("ml-1");
+        }
+        if (trackStatus) {
+          trackStatus.textContent = "DECRYPTING...";
+          trackStatus.classList.add("text-primary");
+          trackStatus.classList.remove("text-[#0dbc79]");
+          const dot = document.getElementById("statusDot");
+          if (dot) {
+            dot.classList.replace("bg-[#0dbc79]", "bg-primary");
+            dot.classList.add("animate-ping");
+          }
+        }
+        if (waveWrap) waveWrap.classList.add("playing");
+      } else {
+        audio.pause();
+        if (playIcon) {
+          playIcon.className = "fas fa-play ml-1 text-xl";
+        }
+        if (trackStatus) {
+          trackStatus.textContent = "STANDBY";
+          trackStatus.classList.remove("text-primary");
+          trackStatus.classList.add("text-[#0dbc79]");
+          const dot = document.getElementById("statusDot");
+          if (dot) {
+            dot.classList.replace("bg-primary", "bg-[#0dbc79]");
+            dot.classList.remove("animate-ping");
+            dot.classList.add("animate-pulse");
+          }
+        }
+        if (waveWrap) waveWrap.classList.remove("playing");
+      }
+    }
+
+    audio.addEventListener("loadedmetadata", () => {
+      if (progressBar) progressBar.max = audio.duration.toString();
+      if (durationEl) durationEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener("timeupdate", () => {
+      if (progressBar) progressBar.value = audio.currentTime.toString();
+      if (currentTimeEl)
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+
+      // Update skeuo track color variable
+      if (progressBar && audio.duration) {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.setProperty("--val", `${percent}%`);
+      }
+    });
+
+    audio.addEventListener("ended", () => {
+      setPlaying(false);
+      if (progressBar) progressBar.value = "0";
+      if (currentTimeEl) currentTimeEl.textContent = "0:00";
+    });
+
+    progressBar?.addEventListener("input", () => {
+      audio.currentTime = parseFloat(progressBar.value);
+      if (currentTimeEl)
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+
+      // Update skeuo track color variable
+      const percent = (audio.currentTime / audio.duration) * 100;
+      progressBar.style.setProperty("--val", `${percent}%`);
+    });
+
+    playBtn.addEventListener("click", () => {
+      setPlaying(!isPlaying);
+    });
+
+    restartBtn?.addEventListener("click", () => {
+      audio.currentTime = 0;
+      if (isPlaying) audio.play();
+    });
+  });
+</script>
