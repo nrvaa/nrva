@@ -1,11 +1,1253 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Home — NRVA"
+  description="NRVA — electronic music for the fractured mind. Listen to the latest single, browse releases and remixes."
+>
+  <Navbar />
+
+  <main class="max-w-4xl mx-auto px-6 py-24 space-y-32">
+    <!-- 2. SECTION: HOME -->
+    <section id="home" class="space-y-8">
+      <!-- 2.1 Hero Content (Bagian Paling Atas) -->
+      <div class="space-y-6 mb-72 mt-32">
+        <!-- <p
+          class="font-mono text-sm font-semibold tracking-widest text-primary uppercase"
+        >
+          NRVA
+        </p> -->
+        <svg
+          width="818"
+          height="339"
+          viewBox="0 0 818 339"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-full max-w-[16rem] sm:max-w-sm md:max-w-md lg:max-w-xl h-auto mx-auto block my-0 py-0 overflow-visible pt-16"
+        >
+          <!-- Background morphing blob for AnimeJS -->
+          <polygon fill="rgba(255,255,255,0.05)"></polygon>
+          <polygon fill="none" style="display:none;"></polygon>
+
+          <path
+            d="M371.9 265.8C370.9 265.8 370.4 264.6 371.1 263.9C373.3 261.6 378.2 255.9 379.1 254.1C384.4 244.7 384.7 228.3 384.8 215C385.2 164.1 384.1 111 383.8 60.7001C383.8 52.2001 381.7 37.0001 377.2 29.8001C375.8 27.5001 373.6 26.0001 373.2 23.4001C372.8 20.8001 373.3 22.6001 373.7 22.4001C374.9 21.7001 377.8 21.5001 378.9 21.4001C398.4 19.8001 442.3 19.8001 460.7 24.5001C516 38.5001 530.5 117.9 484.4 147.8C482.2 149.2 474.6 152.5 474 153.1C473.3 153.8 473.2 154.1 473.2 154.9C473.2 155.7 473.3 155.4 473.4 155.6C476.5 159.4 479 163 481.6 167.2C493 186.3 501.6 207.4 512.8 226.7C535.7 266.2 573.4 327.6 626.4 294.3C627.1 293.9 630.5 290.4 629.9 293.3C629.1 297.9 617.7 308.1 613.6 310.8C594.3 323.6 567.6 326.8 546.1 317.9C501.4 299.2 475 221.6 451.5 181.5C448.3 175.9 445.3 168 437.7 169.4C430 170.8 424.4 173.9 422.9 174.9C419.6 177.1 418.7 181.6 418.4 185.4C417.4 197.2 418.5 210.4 419.1 222.1C419.6 232.2 419.1 245.6 425 254.5C427.6 258.6 430.8 261.8 434.2 264.8C437.6 267.8 434.4 266 433.8 266H372L371.9 265.8ZM421 147.9C422.5 149.3 425.7 148.9 427.6 148.5C435.3 147.1 452.1 140.5 458.2 135.7C486.3 113.6 484.4 53.0001 445.5 44.2001C438.5 42.6001 421.7 40.5001 419.4 49.5001C417.2 58.5001 419.4 49.7001 419.4 49.8001C419.3 78.1001 419.5 146.6 421 147.9Z"
+            fill="currentColor"></path>
+          <path
+            d="M361.3 21.4C363 21.4 364.2 23.1 363.6 24.7C360.6 32.3 357.9 34.2 357.9 45.6C358.1 99.8 358.4 172.4 358.7 226C358.7 234.3 357 257.5 349.4 261.2C338.4 266.5 313.9 223.9 313.9 223.9C287 176.5 263.9 132.2 236.5 83.3C233.5 78.3 229.6 78.8 229.6 84.9C229.6 119.7 230.1 160.3 229.6 195.3L229.8 226.8C230 242.9 243.6 256.8 257.7 264.2C271.7 271.6 258 266.2 256.9 266.2H174.4C173.9 266.2 173.6 265.5 174.1 265.2C187 255.7 200.8 241.7 201.9 226.7C201.5 170.6 201.9 116.9 201.9 60.3C201.9 43.9 193.2 35.8 189.1 32.2C183.2 27.2 176.2 22.7 176.2 22.7C175.6 22.2 176 21.2 176.8 21.2C191.4 21 215 21.4 227.8 21.5C240.6 21.7 249.4 35.2 257.7 46.3C282.4 90.9 303.7 137.4 328.2 182.1C329.5 184.4 334.7 194 336.8 193.3C338.9 192.6 338.9 180.9 338.8 178.2C338.2 140.2 337.7 96 336.8 58.6C336.6 50.2 333.9 39.1 328.2 32.7C327.1 31.5 322.4 27.5 319.6 24.4C316.8 21.3 319.4 21.5 321 21.5L361.3 21.4Z"
+            fill="currentColor"></path>
+          <path
+            d="M137.2 115.7C137.2 115.2 136.8 114.7 136.2 114.7C120.6 115.2 108.1 128.1 108.1 143.8C108.1 159.5 120.6 172.3 136.2 172.9C136.7 172.9 137.2 172.5 137.2 171.9V115.7Z"
+            fill="currentColor"></path>
+          <path
+            d="M96.8 157.7C97.5 157.8 98.1 157.1 97.8 156.4C97.2 154.8 96.7 152.9 96.3 151.1C95.9 149.3 95.6 146.3 95.6 143.7C95.6 141.2 95.8 138.7 96.3 136.3C96.8 133.9 97.2 132.8 97.8 131C98.4 129.3 97.4 129.6 96.8 129.7L37.4 142.7C36.4 142.9 36.4 144.3 37.4 144.6L96.8 157.7Z"
+            fill="currentColor"></path>
+          <path
+            d="M110.1 110.8C110.2 111.5 111.1 111.8 111.7 111.4C113 110.3 114.5 109.2 116.1 108.3C117.7 107.4 120.4 106 122.7 105.1C125 104.2 127.4 103.6 129.8 103.3C132.2 103 133.4 102.9 135.2 102.9C137 102.9 136.4 102.1 136 101.5L103.6 49.9999C103.1 49.0999 101.7 49.5999 101.9 50.6999L110.2 110.9L110.1 110.8Z"
+            fill="currentColor"></path>
+          <path
+            d="M135.2 186.5C135.6 185.9 135.2 185.1 134.5 185C132.7 185 130.9 184.8 129.1 184.5C127.3 184.2 124.4 183.4 122 182.5C119.6 181.6 117.5 180.4 115.5 179.1C113.5 177.8 112.5 177 111.2 175.8C109.9 174.6 109.8 175.6 109.6 176.3L99.8 236.3C99.7 237.3 101 237.9 101.5 237L135.2 186.5Z"
+            fill="currentColor"></path>
+          <path
+            d="M176.2 141.8V71.1C176.2 43.5 153.5 27.3 114.3 15.2C113.6 15 113.2 15.9 113.8 16.3C145.3 34.4 152.9 52.7 152.9 78.4V209.3C152.9 235 145.3 253.3 113.8 271.4C113.1 271.8 113.6 272.7 114.3 272.5C153.5 260.4 176.2 244.2 176.2 216.6V141.8Z"
+            fill="currentColor"></path>
+          <path
+            d="M710.6 266.3C709.8 266.3 709.5 265.3 710.1 264.8C727.5 251.4 720.5 228.2 714.2 210.1C707.9 192 709 191.5 700.8 191.1C684.6 190.9 654.7 191.1 641.6 191.1C639.5 191.1 637.9 189.1 638.5 187L642.3 173.2C642.8 171.3 644.6 170 646.5 170H697.9C698.3 170 700 168.8 700.4 168.1C700.8 167.4 700.4 167.9 700.4 167.9C700.7 166.5 700.6 165.2 700.3 163.8C699 155.7 693.4 142.8 690.9 134.1C686.2 117.2 678.6 90.4001 673.7 72.9001C672.9 70.1001 672.9 67.1001 673.6 64.2001L682.4 29.1001C683.2 26.0001 686.9 24.8001 689.3 26.9001C694.5 31.4001 701 38.4001 702 41.5001C722.1 103.6 735.6 172.2 758.1 232.7C762.5 244.7 767.8 255.7 776.9 264.7C786 273.7 777.1 266.1 776.3 266.1H710.4L710.6 266.3Z"
+            fill="currentColor"></path>
+          <path
+            d="M565.5 30.1C556.2 45 563.7 71.1 567.4 87.2C575.3 122 584.7 161.3 594.9 195.5C595.6 197.7 596.2 200.1 597.3 202.1C600.2 202.1 602.5 192.6 603.3 190.1C614.4 155.7 624.7 116.7 633.5 81.5C637.2 66.9 645.2 43.1 635.5 29.6C634.3 28 627.5 23.4 628.4 22.1C629.7 21.7 631 21.4 632.5 21.3C640.5 20.7 655.4 20.6 663.3 21.3C665.1 21.4 668 21.8 668.3 23.9L607 244.6C605.4 249.5 601.3 263.7 596.3 265.4C591.3 267 579.9 268.2 578.2 263.2C560.1 199.6 546.3 134.5 527 71.4C523 58.3 517.2 39.3 506.6 30.3C504.7 28.7 502.5 26.9 500.7 25.3C497 22.3 495.4 21.2 501.4 21.2H567.5C585.9 21.3 570.6 22.1 565.5 30.1Z"
+            fill="currentColor"></path>
+        </svg>
+        <h1
+          class="text-lg sm:text-3xl font-medium tracking-tight leading-[1.1] pt-16 text-center"
+        >
+          I <strong>dreamt</strong> once of our <strong>final waltz.</strong><br
+          />
+        </h1>
+
+        <!-- <div class="mt-8 pt-8 border-t border-base-200">
+          <p class="text-xl max-w-2xl text-base-content/80 leading-relaxed">
+            Deskripsi singkat tentang apa yang Anda lakukan dan spesialisasi
+            Anda.
+          </p>
+          <ul
+            class="mt-6 flex flex-wrap gap-x-8 gap-y-4 text-sm text-base-content/60 font-mono"
+          >
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-base-content/30"></span>
+              Lokasi Anda (Misal: Bandung, Indonesia)
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-success animate-pulse"
+              ></span>
+              Status (Misal: Available)
+            </li>
+          </ul>
+        </div>
+      </div> -->
+
+        <!-- Scroll Indicator -->
+        <div class="mt-32 flex justify-center w-full">
+          <a
+            href="#latest"
+            class="flex flex-col items-center gap-3 opacity-40 hover:opacity-100 hover:text-primary transition-all duration-500 group"
+            aria-label="Scroll down"
+          >
+            <span
+              class="text-xs font-mono uppercase tracking-[0.3em] group-hover:-translate-y-1 transition-transform duration-500"
+              >Scroll</span
+            >
+            <i class="fas fa-chevron-down animate-bounce text-sm"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECTION: Latest Release -->
+    <section id="latest" class="space-y-12 reveal-on-scroll">
+      <div class="flex items-center gap-4 pt-8">
+        <span class="h-[2px] flex-1 bg-base-content/20 rounded-full"></span>
+        <span
+          class="font-mono text-sm tracking-widest uppercase text-base-content/50"
+        >
+          Latest Release
+        </span>
+        <span class="h-[2px] flex-1 bg-base-content/20 rounded-full"></span>
+      </div>
+
+      <div
+        class="card glass-card max-w-sm mx-auto overflow-hidden hover:-translate-y-1 transition-transform duration-300 rounded-none"
+      >
+        <figure class="aspect-square">
+          <img
+            src="/mhisq.jpg"
+            alt="Shoes"
+            class="w-full h-full object-cover"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title text-2xl">
+            Maybe Hell Is Just a Quieter Place
+          </h2>
+          <p class="text-base-content/70">Listen to a new scripture by NRVA.</p>
+          <div class="card-actions justify-end mt-4">
+            <button class="btn btn-primary rounded-full px-8 mx-auto"
+              >Listen Now</button
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2.2 About Me -->
+    <section id="about" class="space-y-8 reveal-on-scroll">
+      <div class="flex items-center gap-4 pt-16">
+        <span class="h-[2px] flex-1 bg-base-content/20 rounded-full"></span>
+        <span
+          class="font-mono text-sm tracking-widest uppercase text-base-content/50"
+        >
+          About NRVA
+        </span>
+        <span class="h-[2px] flex-1 bg-base-content/20 rounded-full"></span>
+      </div>
+
+      <div class="max-w-3xl mt-32">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+          About <strong>NRVA</strong>
+        </h2>
+        <p
+          class="font-mono sm:text-lg text-base-content/80 leading-relaxed font-light"
+        >
+          As both an artist and a conceptual messenger, <strong>NRVA</strong> blends
+          cinematic dance music with raw, psychological storytelling to map the journey
+          from rock bottom to the sunrise.
+        </p>
+      </div>
+    </section>
+
+    <!-- NEW SECTION: Discography -->
+    <section id="discography" class="space-y-16 reveal-on-scroll">
+      <div class="flex items-center gap-4 pt-8">
+        <span class="h-[2px] flex-1 bg-base-content/20 rounded-full"></span>
+        <span
+          class="font-mono text-sm tracking-widest uppercase text-base-content/50"
+        >
+          Discography
+        </span>
+        <span class="h-[2px] flex-1 bg-base-content/20 rounded-full"></span>
+      </div>
+
+      <!-- Originals Releases -->
+      <div class="space-y-8">
+        <h3
+          class="text-3xl font-bold font-sans text-shadow-red-900 flex items-center gap-3"
+        >
+          <span class="icon-[tabler--disc] size-8"></span>Releases
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10">
+          <div
+            class="discography-item group cursor-pointer flex flex-col gap-4"
+          >
+            <div class="glass-card p-4">
+              <div
+                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-primary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
+              >
+                <img
+                  src="/mhisq.webp"
+                  alt="Maybe Hell Is a Quieter Place"
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+
+                <div
+                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75"
+                >
+                  <span
+                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
+                    >Preview</span
+                  >
+                  <a
+                    href="https://push.fm/fl/v2gvwlck"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-primary btn-circle shadow-lg shadow-primary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
+                  >
+                    <i class="fas fa-play ml-1 text-lg"></i>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4
+                  class="font-bold text-md leading-tight group-hover:text-primary transition-colors line-clamp-1 mt-4"
+                  title="Maybe Hell Is Just a Quieter Place"
+                >
+                  Maybe Hell Is Just a Quieter Place
+                </h4>
+                <p class="text-sm text-base-content/60 font-mono mt-1">
+                  Single • June 2026
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="discography-item group cursor-pointer flex flex-col gap-4"
+          >
+            <div class="glass-card p-4">
+              <div
+                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-primary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
+              >
+                <img
+                  src="/UILY.jpg"
+                  alt="Until I Lose You"
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+
+                <div
+                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75"
+                >
+                  <span
+                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
+                    >Preview</span
+                  >
+                  <a
+                    href="https://push.fm/fl/n2sn2ryq"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-primary btn-circle shadow-lg shadow-primary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
+                  >
+                    <i class="fas fa-play ml-1 text-lg"></i>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4
+                  class="font-bold text-md leading-tight group-hover:text-primary transition-colors line-clamp-1 mt-4"
+                  title="Until I Lose You"
+                >
+                  Until I Lose You
+                </h4>
+                <p class="text-sm text-base-content/60 font-mono mt-1">
+                  EP • August 2025
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="discography-item group cursor-pointer flex flex-col gap-4"
+          >
+            <div class="glass-card p-4">
+              <div
+                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-primary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
+              >
+                <img
+                  src="/Sanctuary.jpg"
+                  alt="Sanctuary"
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+
+                <div
+                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75"
+                >
+                  <span
+                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
+                    >Preview</span
+                  >
+                  <a
+                    href="https://push.fm/fl/krvq6lv7"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-primary btn-circle shadow-lg shadow-primary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
+                  >
+                    <i class="fas fa-play ml-1 text-lg"></i>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4
+                  class="font-bold text-md leading-tight group-hover:text-primary transition-colors line-clamp-1 mt-4"
+                  title="Sanctuary"
+                >
+                  Sanctuary
+                </h4>
+                <p class="text-sm text-base-content/60 font-mono mt-1">
+                  Single • March 2025
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="discography-item group cursor-pointer flex flex-col gap-4"
+          >
+            <div class="glass-card p-4">
+              <div
+                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-primary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
+              >
+                <img
+                  src="/likethis.jpg"
+                  alt="likethis."
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+
+                <div
+                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75"
+                >
+                  <span
+                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
+                    >Preview</span
+                  >
+                  <a
+                    href="https://push.fm/fl/V7w8t0Ab"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-primary btn-circle shadow-lg shadow-primary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
+                  >
+                    <i class="fas fa-play ml-1 text-lg"></i>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4
+                  class="font-bold text-md leading-tight group-hover:text-primary transition-colors line-clamp-1 mt-4"
+                  title="likethis."
+                >
+                  likethis.
+                </h4>
+                <p class="text-sm text-base-content/60 font-mono mt-1">
+                  Single • September 2024
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="discography-item group cursor-pointer flex flex-col gap-4"
+          >
+            <div class="glass-card p-4">
+              <div
+                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-primary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
+              >
+                <img
+                  src="/Monochrome.jpg"
+                  alt="Monochrome"
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+
+                <div
+                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75"
+                >
+                  <span
+                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
+                    >Preview</span
+                  >
+                  <a
+                    href="https://push.fm/fl/vtbiklln"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-primary btn-circle shadow-lg shadow-primary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
+                  >
+                    <i class="fas fa-play ml-1 text-lg"></i>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4
+                  class="font-bold text-md leading-tight group-hover:text-primary transition-colors line-clamp-1 mt-4"
+                  title="Monochrome"
+                >
+                  Monochrome
+                </h4>
+                <p class="text-sm text-base-content/60 font-mono mt-1">
+                  EP • September 2023
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="discography-item group cursor-pointer flex flex-col gap-4"
+          >
+            <div class="glass-card p-4">
+              <div
+                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-primary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
+              >
+                <img
+                  src="/illuminate.jpg"
+                  alt="ILLUMINATE"
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+
+                <div
+                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75"
+                >
+                  <span
+                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
+                    >Preview</span
+                  >
+                  <a
+                    href="https://push.fm/fl/AleMOc6P"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-primary btn-circle shadow-lg shadow-primary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
+                  >
+                    <i class="fas fa-play ml-1 text-lg"></i>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4
+                  class="font-bold text-md leading-tight group-hover:text-primary transition-colors line-clamp-1 mt-4"
+                  title="ILLUMINATE"
+                >
+                  ILLUMINATE
+                </h4>
+                <p class="text-sm text-base-content/60 font-mono mt-1">
+                  EP • May 2023
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Remixes -->
+      <div class="space-y-8 pt-8">
+        <h3
+          class="text-3xl font-bold font-sans text-shadow-red-900 flex items-center gap-3"
+        >
+          <span class="icon-[tabler--vinyl] size-8"></span>Remixes
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10">
+          <div
+            class="discography-item group cursor-pointer flex flex-col gap-4"
+          >
+            <div class="glass-card p-4">
+              <div
+                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-secondary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
+              >
+                <img
+                  src="/DWUL SQ.webp"
+                  alt="ILLENIUM & Ellie Goulding - Don't Want Your Love (NRVA Remix)"
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+
+                <div
+                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75"
+                >
+                  <span
+                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
+                    >Preview</span
+                  >
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-secondary btn-circle shadow-lg shadow-secondary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
+                  >
+                    <i class="fas fa-play ml-1 text-lg"></i>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4
+                  class="font-bold text-md leading-tight group-hover:text-secondary transition-colors line-clamp-1 mt-4"
+                  title="ILLENIUM & Ellie Goulding - Don't Want Your Love (NRVA Remix)"
+                >
+                  ILLENIUM & Ellie Goulding - Don't Want Your Love (NRVA Remix)
+                </h4>
+                <p class="text-sm text-base-content/60 font-mono mt-1">Remix</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="discography-item group cursor-pointer flex flex-col gap-4"
+          >
+            <div class="glass-card p-4">
+              <div
+                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-secondary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
+              >
+                <img
+                  src="/halfway there main.png"
+                  alt="Said The Sky - Halfway There (NRVA Remix)"
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+
+                <div
+                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75"
+                >
+                  <span
+                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
+                    >Preview</span
+                  >
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-secondary btn-circle shadow-lg shadow-secondary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
+                  >
+                    <i class="fas fa-play ml-1 text-lg"></i>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4
+                  class="font-bold text-md leading-tight group-hover:text-secondary transition-colors line-clamp-1 mt-4"
+                  title="Said The Sky - Halfway There (NRVA Remix)"
+                >
+                  Said The Sky - Halfway There (NRVA Remix)
+                </h4>
+                <p class="text-sm text-base-content/60 font-mono mt-1">Remix</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="discography-item group cursor-pointer flex flex-col gap-4"
+          >
+            <div class="glass-card p-4">
+              <div
+                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-secondary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
+              >
+                <img
+                  src="/NIKI Square.png"
+                  alt="NIKI - You'll Be In My Heart (NRVA Remix)"
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+
+                <div
+                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75"
+                >
+                  <span
+                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
+                    >Preview</span
+                  >
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-secondary btn-circle shadow-lg shadow-secondary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
+                  >
+                    <i class="fas fa-play ml-1 text-lg"></i>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4
+                  class="font-bold text-md leading-tight group-hover:text-secondary transition-colors line-clamp-1 mt-4"
+                  title="NIKI - You'll Be In My Heart (NRVA Remix)"
+                >
+                  NIKI - You'll Be In My Heart (NRVA Remix)
+                </h4>
+                <p class="text-sm text-base-content/60 font-mono mt-1">Remix</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="discography-item group cursor-pointer flex flex-col gap-4"
+          >
+            <div class="glass-card p-4">
+              <div
+                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-secondary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
+              >
+                <img
+                  src="/Untitled-1.png"
+                  alt="Marshmello, Avalon, Ellie Goulding - Save My Love (NRVA Remix)"
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
+                </div>
+
+                <div
+                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75"
+                >
+                  <span
+                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
+                    >Preview</span
+                  >
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-secondary btn-circle shadow-lg shadow-secondary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
+                  >
+                    <i class="fas fa-play ml-1 text-lg"></i>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4
+                  class="font-bold text-md leading-tight group-hover:text-secondary transition-colors line-clamp-1 mt-4"
+                  title="Marshmello, Avalon, Ellie Goulding - Save My Love (NRVA Remix)"
+                >
+                  Marshmello, Avalon, Ellie Goulding - Save My Love (NRVA Remix)
+                </h4>
+                <p class="text-sm text-base-content/60 font-mono mt-1">Remix</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presence -->
+    <section id="presence" class="space-y-12 reveal-on-scroll">
+      <div class="flex items-center gap-4 pt-16">
+        <span class="h-[2px] flex-1 bg-base-content/20 rounded-full"></span>
+        <span
+          class="font-mono text-sm tracking-widest uppercase text-base-content/50"
+        >
+          NRVA's Presence
+        </span>
+        <span class="h-[2px] flex-1 bg-base-content/20 rounded-full"></span>
+      </div>
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Presence</h2>
+        <p class="text-xl text-base-content/60">
+          Deskripsi singkat tentang layanan utama yang Anda berikan.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 stagger-children">
+        <div class="glass-card p-6 rounded-none group">
+          <h3 class="text-xl font-bold mb-3">Instagram</h3>
+          <p class="text-sm text-base-content/70 leading-relaxed">@nrvamusic</p>
+          <a
+            href="https://www.instagram.com/nrvamusic/"
+            target="_blank"
+            rel="noopener"
+            class="group-hover:text-[#E1306C] transition-all duration-500 group-hover:scale-110"
+          >
+            <div class="flex justify-center items-center relative z-10">
+              <i
+                class="fab fa-instagram text-2xl text-base-content/60 group-hover:text-[#E1306C] transition-all duration-500 group-hover:scale-110"
+              ></i>
+            </div>
+          </a>
+        </div>
+        <div class="glass-card p-6 rounded-none group">
+          <h3 class="text-xl font-bold mb-3">YouTube</h3>
+          <p class="text-sm text-base-content/70 leading-relaxed">@NRVAMusic</p>
+          <a
+            href="https://youtube.com/@NRVAMusic"
+            target="_blank"
+            rel="noopener"
+            class="group-hover:text-[#FF0000] transition-all duration-500 group-hover:scale-110"
+          >
+            <div class="flex justify-center items-center relative z-10">
+              <i
+                class="fab fa-youtube text-2xl text-base-content/60 group-hover:text-[#FF0000] transition-all duration-500 group-hover:scale-110"
+              ></i>
+            </div>
+          </a>
+        </div>
+        <div class="glass-card p-6 rounded-none group">
+          <h3 class="text-xl font-bold mb-3">Spotify</h3>
+          <p class="text-sm text-base-content/70 leading-relaxed">NRVA</p>
+          <a
+            href="https://open.spotify.com/artist/7tmtimnvL3LiQglZ8awTqp"
+            target="_blank"
+            rel="noopener"
+            class="group-hover:text-[#1DB954] transition-all duration-500 group-hover:scale-110"
+          >
+            <div class="flex justify-center items-center relative z-10">
+              <i
+                class="fab fa-spotify text-2xl text-base-content/60 group-hover:text-[#1DB954] transition-all duration-500 group-hover:scale-110"
+              ></i>
+            </div>
+          </a>
+        </div>
+        <div class="glass-card p-6 rounded-none group">
+          <h3 class="text-xl font-bold mb-3">Apple Music</h3>
+          <p class="text-sm text-base-content/70 leading-relaxed">NRVA</p>
+          <a
+            href="https://music.apple.com/id/artist/nrva/1640313345"
+            target="_blank"
+            rel="noopener"
+            class="group-hover:text-[#FC3C44] transition-all duration-500 group-hover:scale-110"
+          >
+            <div class="flex justify-center items-center relative z-10">
+              <i
+                class="fab fa-apple text-2xl text-base-content/60 group-hover:text-[#FC3C44] transition-all duration-500 group-hover:scale-110"
+              ></i>
+            </div>
+          </a>
+        </div>
+        <div class="glass-card p-6 rounded-none group">
+          <h3 class="text-xl font-bold mb-3">Soundcloud</h3>
+          <p class="text-sm text-base-content/70 leading-relaxed">nrvuh</p>
+          <a
+            href="https://soundcloud.com/nrvuh"
+            target="_blank"
+            rel="noopener"
+            class="group-hover:text-[#FF5500] transition-all duration-500 group-hover:scale-110"
+          >
+            <div class="flex justify-center items-center relative z-10">
+              <i
+                class="fab fa-soundcloud text-2xl text-base-content/60 group-hover:text-[#FF5500] transition-all duration-500 group-hover:scale-110"
+              ></i>
+            </div>
+          </a>
+        </div>
+        <div class="glass-card p-6 rounded-none group">
+          <h3 class="text-xl font-bold mb-3">Twitter</h3>
+          <p class="text-sm text-base-content/70 leading-relaxed">
+            @DeemonKeeng
+          </p>
+          <a
+            href="https://www.x.com/DeemonKeeng/"
+            target="_blank"
+            rel="noopener"
+            class="group-hover:text-[#009ded] transition-all duration-500 group-hover:scale-110"
+          >
+            <div class="flex justify-center items-center relative z-10">
+              <i
+                class="fab fa-twitter text-2xl text-base-content/60 group-hover:text-[#009ded] transition-all duration-500 group-hover:scale-110"
+              ></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="clue" class="space-y-12 reveal-on-scroll">
+      <h1 class="font-bold text-3xl">
+        a sweet synthetic
+        <span
+          id="secretTrigger"
+          style="cursor: pointer; color: var(--color-red-700);"
+        >
+          .</span
+        >
+      </h1>
+    </section>
+  </main>
+  <Footer />
+
+  <div id="secretTerminal">
+    <button
+      id="mobileCloseTerminal"
+      class="absolute top-6 right-6 text-[#0dbc79] text-3xl sm:hidden z-[100] p-4 opacity-70 hover:opacity-100"
+      aria-label="Close Terminal"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+    <div
+      class="terminal-content"
+      id="terminalBox"
+      onclick="document.getElementById('terminalInput')?.focus()"
+    >
+      <div id="terminalHistory"></div>
+      <div class="terminal-input-line">
+        <span class="term-muted">nrva@sundering:~$</span>
+        <input
+          type="text"
+          id="terminalInput"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+    </div>
+    <p class="close-hint">[ PRESS ESC TO CLOSE ]</p>
+  </div>
+  <div id="realityToast" class="reality-toast"></div>
+
+  <style>
+    /* Secret Terminal Styles */
+    #secretTerminal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      font-family: "JetBrains Mono", monospace;
+    }
+    .terminal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 800px;
+      height: 70vh;
+      background: #050505;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 24px;
+      overflow-y: auto;
+      color: #0dbc79;
+      box-shadow:
+        0 0 30px rgba(13, 188, 121, 0.15),
+        inset 0 0 10px rgba(13, 188, 121, 0.1);
+    }
+    /* CRT Scanline effect */
+    .terminal-content::before {
+      content: " ";
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background:
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+        linear-gradient(
+          90deg,
+          rgba(255, 0, 0, 0.06),
+          rgba(0, 255, 0, 0.02),
+          rgba(0, 0, 255, 0.06)
+        );
+      z-index: 2;
+      background-size:
+        100% 2px,
+        3px 100%;
+      pointer-events: none;
+      opacity: 0.3;
+    }
+    #terminalHistory {
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 3;
+    }
+    .term-line {
+      margin-bottom: 8px;
+      line-height: 1.5;
+      font-size: 14px;
+      text-shadow: 0 0 5px rgba(13, 188, 121, 0.5);
+    }
+    .term-muted {
+      color: #0dbc79;
+      opacity: 0.7;
+    }
+    .term-highlight {
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+    .terminal-input-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      position: relative;
+      z-index: 3;
+    }
+    #terminalInput {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #0dbc79;
+      flex: 1;
+      font-family: inherit;
+      font-size: inherit;
+      text-shadow: 0 0 5px rgba(13, 188, 121, 0.5);
+      caret-color: #0dbc79;
+    }
+    .close-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.4);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      letter-spacing: 2px;
+      pointer-events: none;
+    }
+  </style>
+
+  <script>
+    import { onScroll, animate, svg, utils } from "animejs";
+    import Lenis from "lenis";
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("astro:page-load", () => {
+      // === LENIS SMOOTH SCROLL ===
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        smoothWheel: true,
+      });
+
+      // Synchronize Lenis with GSAP ScrollTrigger
+      lenis.on("scroll", ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+
+      // em ini secret terminal logic
+
+      /* ── SECRET TERMINAL SYSTEM ── */
+      const secretTrigger = document.getElementById("secretTrigger");
+      const secretTerminal = document.getElementById("secretTerminal");
+      const terminalHistory = document.getElementById("terminalHistory");
+      const terminalInput = document.getElementById("terminalInput");
+
+      const mobileCloseTerminal = document.getElementById(
+        "mobileCloseTerminal",
+      );
+
+      function openTerminal() {
+        if (secretTerminal) secretTerminal.style.display = "block";
+        document.body.style.overflow = "hidden";
+        setTimeout(() => terminalInput?.focus(), 100);
+      }
+      function closeTerminal() {
+        if (secretTerminal) secretTerminal.style.display = "none";
+        document.body.style.overflow = "";
+      }
+
+      if (secretTrigger) {
+        secretTrigger.addEventListener("click", openTerminal);
+      }
+      if (mobileCloseTerminal) {
+        mobileCloseTerminal.addEventListener("click", closeTerminal);
+      }
+
+      if (secretTerminal) {
+        secretTerminal.addEventListener("click", (e) => {
+          if (e.target === secretTerminal) closeTerminal();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && secretTerminal.style.display === "block")
+            closeTerminal();
+        });
+
+        function printLine(text, isCmd = false) {
+          const line = document.createElement("div");
+          line.className = "term-line";
+          line.innerHTML = isCmd
+            ? `<span class="term-muted">nrva@sundering:~$</span> ${text}`
+            : text;
+          terminalHistory.appendChild(line);
+          terminalHistory.scrollTop = terminalHistory.scrollHeight;
+        }
+
+        let commandHistory = [];
+        let historyIndex = -1;
+
+        if (terminalInput) {
+          terminalInput.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+              const cmd = this.value.trim();
+              this.value = "";
+              if (cmd) {
+                commandHistory.push(cmd);
+                historyIndex = commandHistory.length;
+                printLine(cmd, true);
+                processCommand(cmd);
+              }
+            } else if (e.key === "ArrowUp") {
+              e.preventDefault(); // Prevent cursor moving to start of input
+              if (historyIndex > 0) {
+                historyIndex--;
+                this.value = commandHistory[historyIndex];
+              }
+            } else if (e.key === "ArrowDown") {
+              e.preventDefault();
+              if (historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                this.value = commandHistory[historyIndex];
+              } else {
+                historyIndex = commandHistory.length;
+                this.value = "";
+              }
+            }
+          });
+        }
+
+        function processCommand(cmd) {
+          const args = cmd.toLowerCase().split(" ");
+          switch (args[0]) {
+            case "help":
+              printLine("AVAILABLE PROTOCOLS:");
+              printLine(
+                "- <span class='term-highlight'>DECRYPT [file_id]</span> : Decode fractured memory.",
+              );
+              printLine(
+                "- <span class='term-highlight'>CLEAR</span>             : Wipe terminal memory.",
+              );
+              printLine(
+                "- <span class='term-highlight'>EXIT</span>              : Close session.",
+              );
+              break;
+            case "decrypt":
+              if (args[1] === "frag_001") {
+                printLine("> DECRYPTING FRAG_001...");
+                terminalInput.disabled = true;
+                setTimeout(() => {
+                  printLine(
+                    "<span class='term-highlight'>[ SUCCESS ]</span> DATA RECOVERED.",
+                  );
+                  printLine(
+                    "<i>we've no idea what we've got until we lose it all... Until I Lose You.</i>",
+                  );
+                  terminalInput.disabled = false;
+                  terminalInput.focus();
+                }, 1200);
+              } else if (args[1] === "frag_002") {
+                printLine("> DECRYPTING FRAG_002...");
+                terminalInput.disabled = true;
+                setTimeout(() => {
+                  printLine(
+                    "<span class='term-highlight'>[ SUCCESS ]</span> DATA RECOVERED.",
+                  );
+                  printLine(
+                    "<i>and what's left behind is nothing more than... a Sweet Synthetic Memory.</i>",
+                  );
+                  terminalInput.disabled = false;
+                  terminalInput.focus();
+                }, 1200);
+              } else if (args[1] === "ssm_002") {
+                printLine("> VERIFYING OVERRIDE CODE...");
+                terminalInput.disabled = true;
+                setTimeout(() => {
+                  printLine(
+                    "<span class='term-highlight'>[ SUCCESS ]</span> CLEARANCE ACCEPTED.",
+                  );
+                  setTimeout(() => (window.location.href = "vault.html"), 1000);
+                }, 1200);
+              } else if (args[1] === "ssm_005") {
+                printLine("> VERIFYING OVERRIDE CODE...");
+                terminalInput.disabled = true;
+                setTimeout(() => {
+                  printLine(
+                    "<span class='term-highlight'>[ SUCCESS ]</span> CLEARANCE ACCEPTED.",
+                  );
+                  setTimeout(
+                    () => (window.location.href = "vault2.html"),
+                    1000,
+                  );
+                }, 1200);
+              } else if (args[1] === "uily_001") {
+                printLine("> VERIFYING OVERRIDE CODE...");
+                terminalInput.disabled = true;
+                setTimeout(() => {
+                  printLine(
+                    "<span class='term-highlight'>[ SUCCESS ]</span> CLEARANCE ACCEPTED.",
+                  );
+                  setTimeout(
+                    () => (window.location.href = "vault3.html"),
+                    1000,
+                  );
+                }, 1200);
+              } else if (args[1]) {
+                printLine(`> ERROR: ${args[1].toUpperCase()} NOT FOUND.`);
+              } else {
+                printLine("> ERROR: Missing file ID. Usage: DECRYPT [file_id]");
+              }
+              break;
+            case "clear":
+              terminalHistory.innerHTML = "";
+              break;
+            case "exit":
+              closeTerminal();
+              break;
+            default:
+              printLine(
+                `> Command not recognized: ${args[0]}. Type HELP to view protocols.`,
+              );
+          }
+        }
+
+        printLine("Secure Terminal v1.0.0");
+        printLine("Type <span class='term-highlight'>HELP</span> to begin.");
+        printLine("");
+      }
+
+      // === SMOOTH SCROLL FOR ANCHOR LINKS ===
+      document
+        .querySelectorAll('a[href^="/#"], a[href^="#"]')
+        .forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            const targetId = href.startsWith("/#") ? href.substring(1) : href;
+
+            if (targetId && targetId !== "#") {
+              const targetElement = document.querySelector(targetId);
+              if (targetElement) {
+                e.preventDefault();
+                lenis.scrollTo(targetElement, {
+                  offset: -100, // adjust offset for navbar height
+                });
+              }
+            }
+          });
+        });
+
+      // === GSAP SCROLL REVEAL (Replaces checkReveal) ===
+      const revealElements = gsap.utils.toArray(".reveal-on-scroll");
+      revealElements.forEach((el) => {
+        ScrollTrigger.create({
+          trigger: el,
+          start: "top 85%", // Trigger when element is 85% from top of viewport
+          onEnter: () => el.classList.add("is-visible"),
+          once: true,
+        });
+      });
+
+      // === GSAP STAGGER REVEAL (For Grids like Discography & Presence) ===
+      // Target grids that contain cards
+      const staggerContainers = gsap.utils.toArray(
+        "#discography .grid, .stagger-children",
+      );
+
+      staggerContainers.forEach((container) => {
+        const children = gsap.utils.toArray(container.children);
+
+        // Hide elements initially
+        gsap.set(children, { opacity: 0, y: 40 });
+
+        ScrollTrigger.create({
+          trigger: container,
+          start: "top 85%",
+          once: true,
+          onEnter: () => {
+            gsap.to(children, {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              stagger: 0.1, // Stagger effect
+              ease: "power3.out",
+              clearProps: "all", // Remove inline styles after animation so hover works
+            });
+          },
+        });
+      });
+
+      // === GSAP PARALLAX (Replaces manual scroll event) ===
+      const parallaxLayers = gsap.utils.toArray(".parallax-layer");
+      parallaxLayers.forEach((layer, i) => {
+        const speed = (i + 1) * 0.15; // same speed logic as before
+        gsap.to(layer, {
+          y: () => -ScrollTrigger.maxScroll(window) * speed,
+          ease: "none",
+          scrollTrigger: {
+            trigger: document.body,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true,
+          },
+        });
+      });
+
+      // === NAVBAR TOGGLE ===
+      const toggleButtons = document.querySelectorAll("[data-collapse]");
+      toggleButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const targetId = button.getAttribute("data-collapse");
+          if (!targetId) return;
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.classList.toggle("hidden");
+            button.classList.toggle("collapse-open");
+          }
+        });
+      });
+
+      // === ANIME.JS LOGO ASSEMBLY ===
+      const logoPaths = document.querySelectorAll("svg.w-128 path");
+      if (logoPaths.length > 0) {
+        animate(logoPaths, {
+          translateX: [() => utils.random(-150, 150), 0],
+          translateY: [() => utils.random(-100, 100), 0],
+          scale: [() => utils.random(50, 150) / 100, 1],
+          rotate: [() => utils.random(-45, 45), 0],
+          opacity: [0, 1],
+          easing: "easeOutElastic(1, .6)",
+          duration: () => utils.random(2000, 3500),
+          delay: () => utils.random(0, 500),
+        });
+      }
+    });
+  </script>
 </Layout>

@@ -1,0 +1,598 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+---
+
+<Layout
+  title="The Core — NRVA Lore"
+  description="The architecture of the fractured mind. Explore the three factions."
+>
+  <Navbar isCorePage={true} />
+
+  <main class="relative w-full pb-32">
+    <!-- MATRIX BACKGROUND -->
+    <div
+      class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none opacity-10 sm:opacity-20 mask-image-fade"
+    >
+      <canvas id="matrix-canvas" class="w-full h-full block"></canvas>
+    </div>
+
+    <!-- 1. HERO SECTION -->
+    <section
+      class="min-h-[80vh] flex flex-col justify-center items-center text-center px-6 relative mt-32"
+    >
+      <div
+        class="reveal-on-scroll space-y-6 max-w-4xl mx-auto flex flex-col items-center"
+      >
+        <span
+          class="text-primary text-sm font-mono tracking-[0.2em] uppercase block min-h-[20px]"
+          id="typed-lore"></span>
+        <h1
+          class="text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter uppercase mt-8"
+        >
+          The <span class="text-primary">Sundering</span>
+        </h1>
+        <p
+          class="text-xl sm:text-lg font-mono text-base-content/70 leading-relaxed max-w-2xl mx-auto"
+        >
+          "In the aftermath of the collapse, the fractured consciousness divided
+          into three distinct paths to survive the psychological void."
+        </p>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="mt-28 flex justify-center w-full reveal-on-scroll">
+        <a
+          href="#factions"
+          class="flex flex-col items-center gap-3 opacity-40 hover:opacity-100 hover:text-primary transition-all duration-500 group"
+          aria-label="Scroll down"
+        >
+          <span
+            class="text-xs font-mono uppercase tracking-[0.3em] group-hover:-translate-y-1 transition-transform duration-500"
+            >Explore</span
+          >
+          <i class="fas fa-chevron-down animate-bounce text-sm"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. FACTIONS SECTION -->
+    <section
+      id="factions"
+      class="max-w-7xl mx-auto px-6 py-24 space-y-16 relative z-10"
+    >
+      <div class="text-center space-y-4 reveal-on-scroll">
+        <h2
+          class="font-mono text-sm tracking-widest uppercase text-base-content/50"
+        >
+          Entities
+        </h2>
+        <h3 class="text-4xl sm:text-5xl font-bold tracking-tight">
+          The Three Factions
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+        <!-- Faction 01 -->
+        <article
+          class="glass-card rounded-none p-8 sm:p-10 relative overflow-hidden group flex flex-col gap-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-500 hover:-translate-y-2"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-[#00d2ff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+          >
+          </div>
+          <div
+            class="absolute -top-24 -right-24 w-48 h-48 bg-[#00d2ff]/10 rounded-full blur-3xl group-hover:bg-[#00d2ff]/20 transition-all duration-700"
+          >
+          </div>
+
+          <div
+            class="flex items-center gap-4 border-b border-base-content/10 pb-6 relative z-10"
+          >
+            <div>
+              <span
+                class="text-xs font-mono tracking-widest text-[#00d2ff] uppercase"
+                >Faction 01</span
+              >
+              <h4 class="text-lg font-bold">The Falsebearers</h4>
+            </div>
+          </div>
+
+          <div class="relative z-10 flex-1">
+            <p class="text-base-content/70 leading-relaxed">
+              Unable to process the weight of trauma, this faction surrendered
+              to the illusion of happiness. They constructed artificial havens
+              of light and looping nostalgia. Through constructs like
+              ILLUMINATE, they numb the pain, trapping themselves in a
+              beautiful, endless sleep. They refuse to wake up.
+            </p>
+          </div>
+        </article>
+
+        <!-- Faction 02 -->
+        <article
+          class="glass-card rounded-none p-8 sm:p-10 relative overflow-hidden group flex flex-col gap-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-500 hover:-translate-y-2"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-[#ff004c]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+          >
+          </div>
+          <div
+            class="absolute -top-24 -right-24 w-48 h-48 bg-[#ff004c]/10 rounded-full blur-3xl group-hover:bg-[#ff004c]/20 transition-all duration-700"
+          >
+          </div>
+
+          <div
+            class="flex items-center gap-4 border-b border-base-content/10 pb-6 relative z-10"
+          >
+            <div>
+              <span
+                class="text-xs font-mono tracking-widest text-[#ff004c] uppercase"
+                >Faction 02</span
+              >
+              <h4 class="text-lg font-bold">The Veilwalkers</h4>
+            </div>
+          </div>
+
+          <div class="relative z-10 flex-1">
+            <p class="text-base-content/70 leading-relaxed">
+              They rejected the illusion, choosing instead to walk through the
+              agonizing truth. This faction embraces the painful reality of the
+              present. Wandering through a MONOCHROME world, they bear the heavy
+              silence of isolation.
+            </p>
+          </div>
+        </article>
+
+        <!-- Faction 03 -->
+        <article
+          class="glass-card rounded-none p-8 sm:p-10 relative overflow-hidden group flex flex-col gap-6 shadow-[inset_0_2px_4px_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-500 hover:-translate-y-2"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-[#ffaa00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+          >
+          </div>
+          <div
+            class="absolute -top-24 -right-24 w-48 h-48 bg-[#ffaa00]/10 rounded-full blur-3xl group-hover:bg-[#ffaa00]/20 transition-all duration-700"
+          >
+          </div>
+
+          <div
+            class="flex items-center gap-4 border-b border-base-content/10 pb-6 relative z-10"
+          >
+            <div>
+              <span
+                class="text-xs font-mono tracking-widest text-[#ffaa00] uppercase"
+                >Faction 03</span
+              >
+              <h4 class="text-lg font-bold">The Witnesses</h4>
+            </div>
+          </div>
+
+          <div class="relative z-10 flex-1">
+            <p class="text-base-content/70 leading-relaxed">
+              The silent observers waiting at the edge of the dark. They do not
+              hide in false light, nor do they drown in the bleakness. They
+              endure, holding onto the absolute truth that no matter how long
+              the night lasts, hope is inevitable.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. DEEP LORE EXPOSITION -->
+    <section class="max-w-4xl mx-auto px-6 py-24 space-y-12 reveal-on-scroll">
+      <div
+        class="glass-card p-8 sm:p-14 rounded-none space-y-10 relative overflow-hidden shadow-[inset_0_2px_4px_rgba(255,255,255,0.05),inset_0_-2px_10px_rgba(0,0,0,0.2)]"
+      >
+        <!-- Background watermark icon -->
+        <div
+          class="absolute top-0 right-0 p-8 opacity-[0.03] pointer-events-none"
+        >
+          <i class="fas fa-fingerprint text-[15rem]"></i>
+        </div>
+
+        <div
+          class="flex items-center gap-4 border-b border-base-content/10 pb-6"
+        >
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          <h3 class="font-mono text-sm tracking-widest uppercase text-primary">
+            Decrypted Logs
+          </h3>
+        </div>
+
+        <div
+          class="prose prose-invert max-w-none text-base-content/80 font-mono text-sm sm:text-base leading-[1.8] space-y-6 relative z-10"
+        >
+          <p>
+            It begins with a quiet fracture. A sudden realization of being
+            entirely left behind by the world, accompanied by a paralyzing fear
+            of the future. We document this absolute zero point as <strong
+              class="text-primary font-bold">The Sundering</strong
+            >.
+          </p>
+          <p>
+            In the aftermath of the collapse, the fractured consciousness did
+            not shatter randomly. It divided into three distinct paths. Three
+            covenants formed by the mind to survive the psychological void.
+          </p>
+
+          <blockquote
+            class="font-display text-2xl font-light italic text-base-content border-l-2 border-primary pl-6 my-10 leading-relaxed"
+          >
+            "To escape the void, one must first be willing to witness it."
+          </blockquote>
+
+          <p>
+            Among these three forces emerges <strong
+              class="text-primary font-bold">NRVA, The Messenger</strong
+            >. NRVA is not a savior, but the absolute life force — tasked with
+            documenting this war of the mind through cinematic soundscapes and
+            driving rhythms. Every track is a decrypted file recovered from the
+            ruins, mapping the journey from the fracture toward the inevitable
+            sunrise.
+          </p>
+
+          <div class="mt-16">
+            <span
+              class="block text-base-content/50 font-mono text-sm tracking-widest mb-6 uppercase"
+            >
+              &gt; DECRYPTED ARCHIVES_
+            </span>
+            <div class="flex flex-col gap-4">
+              <!-- Archive 1 -->
+              <div
+                class="archive-file unlocked bg-base-100/50 backdrop-blur-md rounded-xl overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_4px_12px_rgba(0,0,0,0.2)] transition-all duration-300 cursor-pointer hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_0_15px_rgba(0,0,0,0.4)]"
+              >
+                <div
+                  class="grid grid-cols-1 sm:grid-cols-[1fr_3fr_1.5fr] p-5 items-center font-mono text-xs gap-4 sm:gap-0"
+                >
+                  <span class="text-base-content/50">FRAG_001</span>
+                  <span class="font-bold text-sm text-base-content"
+                    >Until I Lose You</span
+                  >
+                  <span class="sm:text-right text-primary">[ DECRYPTED ]</span>
+                </div>
+                <div
+                  class="file-body hidden px-5 pb-5 text-sm text-base-content/70 leading-relaxed border-t border-base-content/10 pt-4"
+                >
+                  <p>
+                    The first stage of The Sundering. An anthem for those in
+                    profound longing. It is the agonizing realization that the
+                    true weight of a connection is only felt the moment it slips
+                    through your fingers. The fear of being entirely left behind
+                    begins here, forcing the mind to desperately hold onto
+                    fading signals.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Archive 2 -->
+              <div
+                class="archive-file unlocked bg-base-100/50 backdrop-blur-md rounded-xl overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_4px_12px_rgba(0,0,0,0.2)] transition-all duration-300 cursor-pointer hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_0_15px_rgba(0,0,0,0.4)]"
+              >
+                <div
+                  class="grid grid-cols-1 sm:grid-cols-[1fr_3fr_1.5fr] p-5 items-center font-mono text-xs gap-4 sm:gap-0"
+                >
+                  <span class="text-base-content/50">FRAG_002</span>
+                  <span class="font-bold text-sm text-base-content"
+                    >Sweet_Synthetic_Memory</span
+                  >
+                  <span class="sm:text-right text-primary">[ DECRYPTED ]</span>
+                </div>
+                <div
+                  class="file-body hidden px-5 pb-5 text-sm text-base-content/70 leading-relaxed border-t border-base-content/10 pt-4"
+                >
+                  <p>
+                    When the present becomes too hostile, the mind constructs
+                    its own haven. Sweet_Synthetic_Memory is the core
+                    architecture of this delusion — a fabricated nostalgia, a
+                    perfect looping simulation of a past that may never have
+                    existed. It numbs the trauma, but traps the host in a
+                    beautiful, endless sleep. Wake up.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Archive 3 Locked -->
+              <div
+                class="archive-file locked bg-base-100/20 backdrop-blur-sm rounded-xl overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)] transition-all duration-300 cursor-not-allowed opacity-60"
+              >
+                <div
+                  class="grid grid-cols-1 sm:grid-cols-[1fr_3fr_1.5fr] p-5 items-center font-mono text-xs gap-4 sm:gap-0"
+                >
+                  <span class="text-base-content/50">FRAG_003</span>
+                  <span class="font-bold text-sm text-base-content"
+                    >UNAVAILABLE_DATA</span
+                  >
+                  <span class="sm:text-right text-base-content/50"
+                    >[ ENCRYPTED ]</span
+                  >
+                </div>
+              </div>
+
+              <!-- Archive 4 Locked -->
+              <div
+                class="archive-file locked bg-base-100/20 backdrop-blur-sm rounded-xl overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)] transition-all duration-300 cursor-not-allowed opacity-60"
+              >
+                <div
+                  class="grid grid-cols-1 sm:grid-cols-[1fr_3fr_1.5fr] p-5 items-center font-mono text-xs gap-4 sm:gap-0"
+                >
+                  <span class="text-base-content/50">FRAG_004</span>
+                  <span class="font-bold text-sm text-base-content"
+                    >CORRUPTED_SECTOR</span
+                  >
+                  <span class="sm:text-right text-error">[ ACCESS DENIED ]</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast Notification -->
+  <div
+    id="realityToast"
+    class="fixed bottom-10 left-1/2 -translate-x-1/2 translate-y-5 bg-base-300 text-base-content px-4 py-2 rounded-full font-mono text-xs font-bold tracking-widest opacity-0 pointer-events-none transition-all duration-300 z-[9999] shadow-[0_4px_12px_rgba(0,0,0,0.4)]"
+  >
+  </div>
+
+  <Footer />
+
+  <style>
+    .mask-image-fade {
+      mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.8) 50%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.8) 50%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+  </style>
+
+  <script>
+    import { animate, utils } from "animejs";
+    import Lenis from "lenis";
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    // === MATRIX RAIN EFFECT ===
+    function initMatrix() {
+      const canvas = document.getElementById(
+        "matrix-canvas",
+      ) as HTMLCanvasElement;
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+
+      // Characters (Mix of Matrix-like glyphs and numbers)
+      const chars =
+        "0123456789@#$%^&*アイウエオカキクケコサシスセソタチツテトナニヌネノ";
+      const charArray = chars.split("");
+
+      const fontSize = 16;
+      let columns = width / fontSize;
+      let drops: number[] = [];
+      for (let x = 0; x < columns; x++) {
+        drops[x] = 1;
+      }
+
+      function draw() {
+        // Semi-transparent black to create trailing effect
+        ctx!.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx!.fillRect(0, 0, width, height);
+
+        ctx!.font = fontSize + "px monospace";
+
+        for (let i = 0; i < drops.length; i++) {
+          const text = charArray[Math.floor(Math.random() * charArray.length)];
+
+          // Color choice: occasionally white, mostly primary red to match NRVA branding
+          if (Math.random() > 0.98) {
+            ctx!.fillStyle = "#FFFFFF";
+          } else {
+            ctx!.fillStyle = "#0dbc79";
+          }
+
+          ctx!.fillText(text, i * fontSize, drops[i] * fontSize);
+
+          if (drops[i] * fontSize > height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+
+      setInterval(draw, 35);
+
+      window.addEventListener("resize", () => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+        columns = width / fontSize;
+        drops = [];
+        for (let x = 0; x < columns; x++) {
+          drops[x] = 1;
+        }
+      });
+    }
+
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("astro:page-load", () => {
+      initMatrix();
+
+      // === LENIS SMOOTH SCROLL ===
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        smoothWheel: true,
+      });
+
+      // Synchronize Lenis with GSAP ScrollTrigger
+      lenis.on("scroll", ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+
+      // === SMOOTH SCROLL FOR ANCHOR LINKS ===
+      document
+        .querySelectorAll('a[href^="/#"], a[href^="#"]')
+        .forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            const targetId = href.startsWith("/#") ? href.substring(1) : href;
+
+            if (targetId && targetId !== "#") {
+              const targetElement = document.querySelector(targetId);
+              if (targetElement) {
+                e.preventDefault();
+                lenis.scrollTo(targetElement, {
+                  offset: -100, // adjust offset for navbar height
+                });
+              }
+            }
+          });
+        });
+
+      // === GSAP SCROLL REVEAL ===
+      const revealElements = gsap.utils.toArray(".reveal-on-scroll");
+      revealElements.forEach((el) => {
+        ScrollTrigger.create({
+          trigger: el as Element,
+          start: "top 85%",
+          onEnter: () => (el as Element).classList.add("is-visible"),
+          once: true,
+        });
+      });
+
+      // === GSAP STAGGER REVEAL ===
+      const staggerContainers = gsap.utils.toArray(".stagger-children");
+
+      staggerContainers.forEach((container) => {
+        const children = gsap.utils.toArray((container as Element).children);
+
+        gsap.set(children, { opacity: 0, y: 40 });
+
+        ScrollTrigger.create({
+          trigger: container as Element,
+          start: "top 85%",
+          once: true,
+          onEnter: () => {
+            gsap.to(children, {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              stagger: 0.1,
+              ease: "power3.out",
+              clearProps: "all",
+            });
+          },
+        });
+      });
+
+      // === GSAP PARALLAX (Borrowed from Layout logic) ===
+      const parallaxLayers = gsap.utils.toArray(".parallax-layer");
+      parallaxLayers.forEach((layer, i) => {
+        const speed = (i + 1) * 0.15;
+        gsap.to(layer as Element, {
+          y: () => -ScrollTrigger.maxScroll(window) * speed,
+          ease: "none",
+          scrollTrigger: {
+            trigger: document.body,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true,
+          },
+        });
+      });
+
+      // === TYPED TEXT EFFECT ===
+      const phrases = [
+        "A Story.",
+        "A Surrender.",
+        "A Sunrise.",
+        "A Sanctuary.",
+        "A Synthesis.",
+      ];
+      let pi = 0,
+        ci = 0,
+        del = false;
+      const typedEl = document.getElementById("typed-lore");
+
+      function type() {
+        if (!typedEl) return;
+        const p = phrases[pi];
+        typedEl.textContent = del ? p.slice(0, ci--) : p.slice(0, ci++);
+        if (!del && ci > p.length) {
+          del = true;
+          setTimeout(type, 1800);
+          return;
+        }
+        if (del && ci < 0) {
+          del = false;
+          ci = 0;
+          pi = (pi + 1) % phrases.length;
+        }
+        setTimeout(type, del ? 38 : 65);
+      }
+      type();
+
+      // === ARCHIVE INTERACTIONS ===
+      const toast = document.getElementById("realityToast");
+      let toastTimeout: ReturnType<typeof setTimeout>;
+
+      function showToast(message: string) {
+        if (!toast) return;
+        clearTimeout(toastTimeout);
+        toast.textContent = message;
+        toast.classList.remove("opacity-0", "translate-y-5");
+        toast.classList.add("opacity-100", "translate-y-0");
+        toastTimeout = setTimeout(() => {
+          toast.classList.add("opacity-0", "translate-y-5");
+          toast.classList.remove("opacity-100", "translate-y-0");
+        }, 2400);
+      }
+
+      document.querySelectorAll(".archive-file").forEach((file) => {
+        file.addEventListener("click", function (this: HTMLElement) {
+          if (this.classList.contains("locked")) {
+            showToast("ACCESS DENIED: DATA CORRUPTED");
+            // shake effect
+            this.style.transform = "translateX(4px)";
+            setTimeout(() => (this.style.transform = "translateX(-4px)"), 50);
+            setTimeout(() => (this.style.transform = "translateX(0)"), 100);
+          } else if (this.classList.contains("unlocked")) {
+            const body = this.querySelector(".file-body");
+            if (body) {
+              body.classList.toggle("hidden");
+            }
+          }
+        });
+      });
+    });
+  </script>
+</Layout>
