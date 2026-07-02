@@ -6,7 +6,7 @@ import imagesLoaded from 'imagesloaded'
 import { cn } from '../lib/utils'
 import { FaGithub, FaSlack, FaTwitter } from 'react-icons/fa'
 import { LiquidMetalButton } from './LiquidMetalButton'
-
+import { GlassDock, type DockItem } from './GlassDock'
 gsap.registerPlugin(ScrollTrigger)
 
 export interface BentoItem {
@@ -14,7 +14,7 @@ export interface BentoItem {
     title: string
     subtitle: string
     description: string
-    icon: React.ReactNode
+    icon: any
     content?: React.ReactNode
     image?: string
     href?: string
@@ -200,33 +200,15 @@ export function StaggeredGrid({
                             // Render the HoverExpand Group using passed bentoItems
                             if (!bentoItems || bentoItems.length === 0) return null;
 
+                            const dockItems: DockItem[] = bentoItems.map(b => ({
+                                title: b.title,
+                                icon: b.icon,
+                                href: b.href
+                            }));
+
                             return (
-                                <div key="bento-group" data-col={0} className="grid__item bento-container col-span-7 row-span-1 relative z-20 flex items-center justify-center h-full w-full will-change-transform px-4 md:px-12">
-                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 w-full max-w-5xl mx-auto">
-                                        {bentoItems.map((bentoItem) => {
-                                            return (
-                                                <a 
-                                                    key={bentoItem.id} 
-                                                    href={bentoItem.href} 
-                                                    target="_blank" 
-                                                    rel="noopener noreferrer"
-                                                    className="w-full"
-                                                >
-                                                    <LiquidMetalButton
-                                                        icon={bentoItem.icon}
-                                                        size="md"
-                                                        className="w-full"
-                                                        metalConfig={{
-                                                            colorBack: "#3f3f46", // zinc-700
-                                                            colorTint: "#71717a", // zinc-500
-                                                            speed: 0.6,
-                                                            distortion: 0.2
-                                                        }}
-                                                    />
-                                                </a>
-                                            )
-                                        })}
-                                    </div>
+                                <div key="bento-group" data-col={0} className="grid__item bento-container col-span-7 row-span-1 relative z-20 flex items-center justify-center h-full w-full will-change-transform px-4 md:px-12 mt-8">
+                                    <GlassDock items={dockItems} />
                                 </div>
                             )
                         }

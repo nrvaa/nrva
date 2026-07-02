@@ -18,7 +18,7 @@ export default function Presence({ images }: PresenceProps) {
             title: 'Instagram',
             subtitle: '@nrvamusic',
             description: 'Follow for the latest updates and behind the scenes.',
-            icon: <FaInstagram className="w-5 h-5" />,
+            icon: FaInstagram,
             href: 'https://www.instagram.com/nrvamusic/',
         },
         {
@@ -26,7 +26,7 @@ export default function Presence({ images }: PresenceProps) {
             title: 'YouTube',
             subtitle: '@NRVAMusic',
             description: 'Watch music videos, live performances and more.',
-            icon: <FaYoutube className="w-5 h-5" />,
+            icon: FaYoutube,
             href: 'https://youtube.com/@NRVAMusic',
         },
         {
@@ -34,7 +34,7 @@ export default function Presence({ images }: PresenceProps) {
             title: 'Spotify',
             subtitle: 'NRVA',
             description: 'Listen to the latest releases on Spotify.',
-            icon: <FaSpotify className="w-5 h-5" />,
+            icon: FaSpotify,
             href: 'https://open.spotify.com/artist/7tmtimnvL3LiQglZ8awTqp',
         },
         {
@@ -42,7 +42,7 @@ export default function Presence({ images }: PresenceProps) {
             title: 'Apple Music',
             subtitle: 'NRVA',
             description: 'Stream all tracks in high quality audio.',
-            icon: <FaApple className="w-5 h-5" />,
+            icon: FaApple,
             href: 'https://music.apple.com/id/artist/nrva/1640313345',
         },
         {
@@ -50,7 +50,7 @@ export default function Presence({ images }: PresenceProps) {
             title: 'Soundcloud',
             subtitle: 'nrvuh',
             description: 'Exclusive bootlegs and remixes.',
-            icon: <FaSoundcloud className="w-5 h-5" />,
+            icon: FaSoundcloud,
             href: 'https://soundcloud.com/nrvuh',
         },
         {
@@ -58,7 +58,7 @@ export default function Presence({ images }: PresenceProps) {
             title: 'Twitter',
             subtitle: '@DeemonKeeng',
             description: 'Random thoughts and announcements.',
-            icon: <FaTwitter className="w-5 h-5" />,
+            icon: FaTwitter,
             href: 'https://www.x.com/DeemonKeeng/',
         },
     ];
