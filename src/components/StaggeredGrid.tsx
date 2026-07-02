@@ -222,9 +222,7 @@ export function StaggeredGrid({
                                                             speed: 0.6,
                                                             distortion: 0.2
                                                         }}
-                                                    >
-                                                        {bentoItem.title}
-                                                    </LiquidMetalButton>
+                                                    />
                                                 </a>
                                             )
                                         })}

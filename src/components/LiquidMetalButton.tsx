@@ -70,7 +70,7 @@ LiquidMetal.displayName = "LiquidMetal";
 export interface LiquidMetalButtonProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     /** Button content */
-    children: React.ReactNode;
+    children?: React.ReactNode;
     /** Optional icon displayed on the left */
     icon?: React.ReactNode;
     /** Border width in pixels */
@@ -121,7 +121,7 @@ export const LiquidMetalButton = forwardRef<
                 {...props}
             >
                 <div
-                    className="relative rounded-full overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] w-full"
+                    className="relative rounded-full overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] w-full h-full"
                     style={{ padding: borderWidth }}
                 >
                     {/* Liquid Metal Border Layer */}
@@ -138,7 +138,7 @@ export const LiquidMetalButton = forwardRef<
                     {/* Inner Button Body */}
                     <div
                         className={cn(
-                            "relative z-10 rounded-full flex items-center justify-center w-full overflow-hidden",
+                            "relative z-10 rounded-full flex items-center justify-center w-full h-full overflow-hidden",
                             "bg-white dark:bg-black",
                             "transition-colors duration-200",
                             "group-hover:bg-neutral-50 dark:group-hover:bg-neutral-900",
@@ -149,6 +149,7 @@ export const LiquidMetalButton = forwardRef<
                             <div
                                 className={cn(
                                     "flex items-center justify-center flex-shrink-0",
+                                    !children ? "scale-150" : "",
                                     iconSizes[size]
                                 )}
                             >
@@ -157,9 +158,11 @@ export const LiquidMetalButton = forwardRef<
                                 </span>
                             </div>
                         )}
-                        <span className="font-medium tracking-tight text-neutral-900 dark:text-white truncate">
-                            {children}
-                        </span>
+                        {children && (
+                            <span className="font-medium tracking-tight text-neutral-900 dark:text-white truncate">
+                                {children}
+                            </span>
+                        )}
                     </div>
                 </div>
             </button>
