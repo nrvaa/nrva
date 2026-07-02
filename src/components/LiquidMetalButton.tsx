@@ -99,9 +99,9 @@ export const LiquidMetalButton = forwardRef<
         ref
     ) => {
         const sizeStyles = {
-            sm: "py-2 pl-2 pr-6 gap-3 text-sm",
-            md: "py-3 pl-3 pr-8 gap-4 text-base",
-            lg: "py-4 pl-4 pr-10 gap-6 text-lg",
+            sm: "py-2 px-4 gap-2 text-sm",
+            md: "py-3 px-6 gap-3 text-base",
+            lg: "py-4 px-8 gap-4 text-lg",
         };
 
         const iconSizes = {
@@ -121,7 +121,7 @@ export const LiquidMetalButton = forwardRef<
                 {...props}
             >
                 <div
-                    className="relative rounded-full overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)]"
+                    className="relative rounded-full overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] w-full"
                     style={{ padding: borderWidth }}
                 >
                     {/* Liquid Metal Border Layer */}
@@ -138,7 +138,7 @@ export const LiquidMetalButton = forwardRef<
                     {/* Inner Button Body */}
                     <div
                         className={cn(
-                            "relative z-10 rounded-full flex items-center",
+                            "relative z-10 rounded-full flex items-center justify-center w-full overflow-hidden",
                             "bg-white dark:bg-black",
                             "transition-colors duration-200",
                             "group-hover:bg-neutral-50 dark:group-hover:bg-neutral-900",
@@ -148,7 +148,7 @@ export const LiquidMetalButton = forwardRef<
                         {icon && (
                             <div
                                 className={cn(
-                                    "flex items-center justify-center",
+                                    "flex items-center justify-center flex-shrink-0",
                                     iconSizes[size]
                                 )}
                             >
@@ -157,7 +157,7 @@ export const LiquidMetalButton = forwardRef<
                                 </span>
                             </div>
                         )}
-                        <span className="font-medium tracking-tight text-neutral-900 dark:text-white w-full text-center">
+                        <span className="font-medium tracking-tight text-neutral-900 dark:text-white truncate">
                             {children}
                         </span>
                     </div>
