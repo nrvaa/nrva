@@ -240,19 +240,21 @@ export function StaggeredGrid({
                         if (typeof item === 'string') {
                             return (
                                 <figure key={`img-${i}`} data-col={i % 7} className="grid__item m-0 relative z-10 [perspective:800px] will-change-[transform,opacity] group cursor-pointer">
-                                    <div className="grid__item-img w-full h-full [backface-visibility:hidden] will-change-transform rounded-xl overflow-hidden shadow-sm border border-white/5 bg-white/5 backdrop-blur-sm flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-105 group-hover:shadow-xl group-hover:border-white/20">
+                                    <div className="grid__item-img w-full h-full [backface-visibility:hidden] will-change-transform rounded-xl overflow-hidden shadow-sm border border-white/5 bg-zinc-900 flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-105 group-hover:shadow-xl group-hover:border-white/20">
 
                                         {/* Background Image (using provided URL) */}
                                         <div className="absolute inset-0 bg-zinc-900 overflow-hidden z-0">
                                             <img
                                                 src={item}
                                                 alt=""
+                                                loading="lazy"
+                                                decoding="async"
                                                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 opacity-90 group-hover:opacity-100"
                                             />
                                         </div>
 
                                         {/* Gradient Overlay for Hover */}
-                                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/80 to-black backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+                                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/80 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
                                     </div>
                                 </figure>
                             )
