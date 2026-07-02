@@ -79,10 +79,78 @@ import imgDieweomom from "../assets/images/dieweomom.webp";
             fill="currentColor"></path>
         </svg>
         <h1
-          class="text-lg sm:text-3xl font-medium tracking-tight leading-[1.1] pt-16 text-center"
+          class="text-lg sm:text-3xl font-medium tracking-tight leading-[1.1] pt-16 text-center flip-text-wrapper"
+          style="perspective: 1000px;"
         >
-          I <strong>dreamt</strong> once of our <strong>final waltz.</strong><br
-          />
+          <!-- Word: I -->
+          <span class="flip-word" style="transform-style: preserve-3d;">
+            <span class="flip-char" style="--flip-delay: 0s;">I</span>
+          </span>
+          <span class="flip-space">&nbsp;</span>
+          <!-- Word: dreamt -->
+          <span class="flip-word" style="transform-style: preserve-3d;">
+            <strong
+              ><span class="flip-char" style="--flip-delay: 0.06s;">d</span
+              ><span class="flip-char" style="--flip-delay: 0.11s;">r</span
+              ><span class="flip-char" style="--flip-delay: 0.16s;">e</span
+              ><span class="flip-char" style="--flip-delay: 0.20s;">a</span
+              ><span class="flip-char" style="--flip-delay: 0.24s;">m</span
+              ><span class="flip-char" style="--flip-delay: 0.27s;">t</span
+              ></strong
+            >
+          </span>
+          <span class="flip-space">&nbsp;</span>
+          <!-- Word: once -->
+          <span class="flip-word" style="transform-style: preserve-3d;">
+            <span class="flip-char" style="--flip-delay: 0.30s;">o</span><span
+              class="flip-char"
+              style="--flip-delay: 0.33s;">n</span
+            ><span class="flip-char" style="--flip-delay: 0.36s;">c</span><span
+              class="flip-char"
+              style="--flip-delay: 0.38s;">e</span
+            >
+          </span>
+          <span class="flip-space">&nbsp;</span>
+          <!-- Word: of -->
+          <span class="flip-word" style="transform-style: preserve-3d;">
+            <span class="flip-char" style="--flip-delay: 0.40s;">o</span><span
+              class="flip-char"
+              style="--flip-delay: 0.42s;">f</span
+            >
+          </span>
+          <span class="flip-space">&nbsp;</span>
+          <!-- Word: our -->
+          <span class="flip-word" style="transform-style: preserve-3d;">
+            <span class="flip-char" style="--flip-delay: 0.44s;">o</span><span
+              class="flip-char"
+              style="--flip-delay: 0.46s;">u</span
+            ><span class="flip-char" style="--flip-delay: 0.48s;">r</span>
+          </span>
+          <span class="flip-space">&nbsp;</span>
+          <!-- Word: final -->
+          <span class="flip-word" style="transform-style: preserve-3d;">
+            <strong
+              ><span class="flip-char" style="--flip-delay: 0.50s;">f</span
+              ><span class="flip-char" style="--flip-delay: 0.52s;">i</span
+              ><span class="flip-char" style="--flip-delay: 0.53s;">n</span
+              ><span class="flip-char" style="--flip-delay: 0.54s;">a</span
+              ><span class="flip-char" style="--flip-delay: 0.55s;">l</span
+              ></strong
+            >
+          </span>
+          <span class="flip-space">&nbsp;</span>
+          <!-- Word: waltz. -->
+          <span class="flip-word" style="transform-style: preserve-3d;">
+            <strong
+              ><span class="flip-char" style="--flip-delay: 0.56s;">w</span
+              ><span class="flip-char" style="--flip-delay: 0.57s;">a</span
+              ><span class="flip-char" style="--flip-delay: 0.58s;">l</span
+              ><span class="flip-char" style="--flip-delay: 0.59s;">t</span
+              ><span class="flip-char" style="--flip-delay: 0.60s;">z</span
+              ><span class="flip-char" style="--flip-delay: 0.61s;">.</span
+              ></strong
+            >
+          </span>
         </h1>
 
         <!-- <div class="mt-8 pt-8 border-t border-base-200">
@@ -189,7 +257,7 @@ import imgDieweomom from "../assets/images/dieweomom.webp";
       </div>
     </section>
 
-    <!-- NEW SECTION: Discography -->
+    <!-- NEW SECTION: Discography — Swiper Coverflow Carousel -->
     <section id="discography" class="space-y-16 reveal-on-scroll">
       <div class="flex items-center gap-4 pt-8">
         <span class="h-[2px] flex-1 bg-base-content/20 rounded-full"></span>
@@ -201,492 +269,473 @@ import imgDieweomom from "../assets/images/dieweomom.webp";
         <span class="h-[2px] flex-1 bg-base-content/20 rounded-full"></span>
       </div>
 
-      <!-- Originals Releases -->
+      <!-- ═══ Releases Carousel ═══ -->
       <div class="space-y-8">
         <h3
           class="text-3xl font-bold font-sans text-shadow-red-900 flex items-center gap-3"
         >
           <span class="icon-[tabler--disc] size-8"></span>Releases
         </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10">
-          <div
-            class="discography-item group cursor-pointer flex flex-col gap-4"
-          >
-            <div class="glass-card p-4">
-              <div
-                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-primary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
-              >
-                <Image
-                  src={imgMhisqWebp}
-                  alt="Maybe Hell Is a Quieter Place"
-                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                >
-                </div>
 
-                <div
-                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75 z-10"
-                >
-                  <span
-                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
-                    >Preview</span
-                  >
-                  <a
-                    href="https://push.fm/fl/v2gvwlck"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-primary btn-circle shadow-lg shadow-primary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
-                  >
-                    <i class="fas fa-play ml-1 text-lg"></i>
-                  </a>
+        <div class="disco-carousel-wrap relative">
+          <div class="swiper disco-swiper-releases">
+            <div class="swiper-wrapper">
+              <!-- Slide 1: Maybe Hell Is Just a Quieter Place -->
+              <div class="swiper-slide disco-slide">
+                <div class="disco-slide-inner group">
+                  <div class="disco-art-frame">
+                    <Image
+                      src={imgMhisqWebp}
+                      alt="Maybe Hell Is Just a Quieter Place"
+                      class="disco-art"
+                    />
+                    <div class="disco-art-overlay"></div>
+                    <div class="disco-art-actions">
+                      <span class="disco-badge">Single • June 2026</span>
+                      <a
+                        href="https://push.fm/fl/v2gvwlck"
+                        target="_blank"
+                        rel="noopener"
+                        class="disco-play-btn"
+                        aria-label="Play Maybe Hell Is Just a Quieter Place"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="size-5 ml-0.5"
+                          ><path d="M8 5v14l11-7z"></path></svg
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="disco-info">
+                    <h4
+                      class="disco-title"
+                      title="Maybe Hell Is Just a Quieter Place"
+                    >
+                      Maybe Hell Is Just a Quieter Place
+                    </h4>
+                    <p class="disco-meta">Single • June 2026</p>
+                  </div>
                 </div>
               </div>
-              <div>
-                <h4
-                  class="font-bold text-md leading-tight group-hover:text-primary transition-colors line-clamp-1 mt-4"
-                  title="Maybe Hell Is Just a Quieter Place"
-                >
-                  Maybe Hell Is Just a Quieter Place
-                </h4>
-                <p class="text-sm text-base-content/60 font-mono mt-1">
-                  Single • June 2026
-                </p>
+
+              <!-- Slide 2: Until I Lose You -->
+              <div class="swiper-slide disco-slide">
+                <div class="disco-slide-inner group">
+                  <div class="disco-art-frame">
+                    <Image
+                      src={imgUILY}
+                      alt="Until I Lose You"
+                      class="disco-art"
+                    />
+                    <div class="disco-art-overlay"></div>
+                    <div class="disco-art-actions">
+                      <span class="disco-badge">EP • August 2025</span>
+                      <a
+                        href="https://push.fm/fl/n2sn2ryq"
+                        target="_blank"
+                        rel="noopener"
+                        class="disco-play-btn"
+                        aria-label="Play Until I Lose You"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="size-5 ml-0.5"
+                          ><path d="M8 5v14l11-7z"></path></svg
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="disco-info">
+                    <h4 class="disco-title" title="Until I Lose You">
+                      Until I Lose You
+                    </h4>
+                    <p class="disco-meta">EP • August 2025</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3: Sanctuary -->
+              <div class="swiper-slide disco-slide">
+                <div class="disco-slide-inner group">
+                  <div class="disco-art-frame">
+                    <Image
+                      src={imgSanctuary}
+                      alt="Sanctuary"
+                      class="disco-art"
+                    />
+                    <div class="disco-art-overlay"></div>
+                    <div class="disco-art-actions">
+                      <span class="disco-badge">Single • March 2025</span>
+                      <a
+                        href="https://push.fm/fl/krvq6lv7"
+                        target="_blank"
+                        rel="noopener"
+                        class="disco-play-btn"
+                        aria-label="Play Sanctuary"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="size-5 ml-0.5"
+                          ><path d="M8 5v14l11-7z"></path></svg
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="disco-info">
+                    <h4 class="disco-title" title="Sanctuary">Sanctuary</h4>
+                    <p class="disco-meta">Single • March 2025</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 4: likethis. -->
+              <div class="swiper-slide disco-slide">
+                <div class="disco-slide-inner group">
+                  <div class="disco-art-frame">
+                    <Image
+                      src={imgLikethis}
+                      alt="likethis."
+                      class="disco-art"
+                    />
+                    <div class="disco-art-overlay"></div>
+                    <div class="disco-art-actions">
+                      <span class="disco-badge">Single • September 2024</span>
+                      <a
+                        href="https://push.fm/fl/V7w8t0Ab"
+                        target="_blank"
+                        rel="noopener"
+                        class="disco-play-btn"
+                        aria-label="Play likethis."
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="size-5 ml-0.5"
+                          ><path d="M8 5v14l11-7z"></path></svg
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="disco-info">
+                    <h4 class="disco-title" title="likethis.">likethis.</h4>
+                    <p class="disco-meta">Single • September 2024</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 5: Monochrome -->
+              <div class="swiper-slide disco-slide">
+                <div class="disco-slide-inner group">
+                  <div class="disco-art-frame">
+                    <Image
+                      src={imgMonochrome}
+                      alt="Monochrome"
+                      class="disco-art"
+                    />
+                    <div class="disco-art-overlay"></div>
+                    <div class="disco-art-actions">
+                      <span class="disco-badge">EP • September 2023</span>
+                      <a
+                        href="https://push.fm/fl/vtbiklln"
+                        target="_blank"
+                        rel="noopener"
+                        class="disco-play-btn"
+                        aria-label="Play Monochrome"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="size-5 ml-0.5"
+                          ><path d="M8 5v14l11-7z"></path></svg
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="disco-info">
+                    <h4 class="disco-title" title="Monochrome">Monochrome</h4>
+                    <p class="disco-meta">EP • September 2023</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 6: ILLUMINATE -->
+              <div class="swiper-slide disco-slide">
+                <div class="disco-slide-inner group">
+                  <div class="disco-art-frame">
+                    <Image
+                      src={imgIlluminate}
+                      alt="ILLUMINATE"
+                      class="disco-art"
+                    />
+                    <div class="disco-art-overlay"></div>
+                    <div class="disco-art-actions">
+                      <span class="disco-badge">EP • May 2023</span>
+                      <a
+                        href="https://push.fm/fl/AleMOc6P"
+                        target="_blank"
+                        rel="noopener"
+                        class="disco-play-btn"
+                        aria-label="Play ILLUMINATE"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="size-5 ml-0.5"
+                          ><path d="M8 5v14l11-7z"></path></svg
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="disco-info">
+                    <h4 class="disco-title" title="ILLUMINATE">ILLUMINATE</h4>
+                    <p class="disco-meta">EP • May 2023</p>
+                  </div>
+                </div>
               </div>
             </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination disco-pagination"></div>
           </div>
 
-          <div
-            class="discography-item group cursor-pointer flex flex-col gap-4"
+          <!-- Custom Navigation -->
+          <button
+            class="disco-nav disco-nav-prev"
+            aria-label="Previous release"
           >
-            <div class="glass-card p-4">
-              <div
-                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-primary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
-              >
-                <Image
-                  src={imgUILY}
-                  alt="Until I Lose You"
-                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                >
-                </div>
-
-                <div
-                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75 z-10"
-                >
-                  <span
-                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
-                    >Preview</span
-                  >
-                  <a
-                    href="https://push.fm/fl/n2sn2ryq"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-primary btn-circle shadow-lg shadow-primary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
-                  >
-                    <i class="fas fa-play ml-1 text-lg"></i>
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h4
-                  class="font-bold text-md leading-tight group-hover:text-primary transition-colors line-clamp-1 mt-4"
-                  title="Until I Lose You"
-                >
-                  Until I Lose You
-                </h4>
-                <p class="text-sm text-base-content/60 font-mono mt-1">
-                  EP • August 2025
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="discography-item group cursor-pointer flex flex-col gap-4"
-          >
-            <div class="glass-card p-4">
-              <div
-                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-primary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
-              >
-                <Image
-                  src={imgSanctuary}
-                  alt="Sanctuary"
-                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                >
-                </div>
-
-                <div
-                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75 z-10"
-                >
-                  <span
-                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
-                    >Preview</span
-                  >
-                  <a
-                    href="https://push.fm/fl/krvq6lv7"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-primary btn-circle shadow-lg shadow-primary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
-                  >
-                    <i class="fas fa-play ml-1 text-lg"></i>
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h4
-                  class="font-bold text-md leading-tight group-hover:text-primary transition-colors line-clamp-1 mt-4"
-                  title="Sanctuary"
-                >
-                  Sanctuary
-                </h4>
-                <p class="text-sm text-base-content/60 font-mono mt-1">
-                  Single • March 2025
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="discography-item group cursor-pointer flex flex-col gap-4"
-          >
-            <div class="glass-card p-4">
-              <div
-                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-primary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
-              >
-                <Image
-                  src={imgLikethis}
-                  alt="likethis."
-                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                >
-                </div>
-
-                <div
-                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75 z-10"
-                >
-                  <span
-                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
-                    >Preview</span
-                  >
-                  <a
-                    href="https://push.fm/fl/V7w8t0Ab"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-primary btn-circle shadow-lg shadow-primary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
-                  >
-                    <i class="fas fa-play ml-1 text-lg"></i>
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h4
-                  class="font-bold text-md leading-tight group-hover:text-primary transition-colors line-clamp-1 mt-4"
-                  title="likethis."
-                >
-                  likethis.
-                </h4>
-                <p class="text-sm text-base-content/60 font-mono mt-1">
-                  Single • September 2024
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="discography-item group cursor-pointer flex flex-col gap-4"
-          >
-            <div class="glass-card p-4">
-              <div
-                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-primary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
-              >
-                <Image
-                  src={imgMonochrome}
-                  alt="Monochrome"
-                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                >
-                </div>
-
-                <div
-                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75 z-10"
-                >
-                  <span
-                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
-                    >Preview</span
-                  >
-                  <a
-                    href="https://push.fm/fl/vtbiklln"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-primary btn-circle shadow-lg shadow-primary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
-                  >
-                    <i class="fas fa-play ml-1 text-lg"></i>
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h4
-                  class="font-bold text-md leading-tight group-hover:text-primary transition-colors line-clamp-1 mt-4"
-                  title="Monochrome"
-                >
-                  Monochrome
-                </h4>
-                <p class="text-sm text-base-content/60 font-mono mt-1">
-                  EP • September 2023
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="discography-item group cursor-pointer flex flex-col gap-4"
-          >
-            <div class="glass-card p-4">
-              <div
-                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-primary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
-              >
-                <Image
-                  src={imgIlluminate}
-                  alt="ILLUMINATE"
-                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                >
-                </div>
-
-                <div
-                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75 z-10"
-                >
-                  <span
-                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
-                    >Preview</span
-                  >
-                  <a
-                    href="https://push.fm/fl/AleMOc6P"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-primary btn-circle shadow-lg shadow-primary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
-                  >
-                    <i class="fas fa-play ml-1 text-lg"></i>
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h4
-                  class="font-bold text-md leading-tight group-hover:text-primary transition-colors line-clamp-1 mt-4"
-                  title="ILLUMINATE"
-                >
-                  ILLUMINATE
-                </h4>
-                <p class="text-sm text-base-content/60 font-mono mt-1">
-                  EP • May 2023
-                </p>
-              </div>
-            </div>
-          </div>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="size-5"><path d="M15 18l-6-6 6-6"></path></svg
+            >
+          </button>
+          <button class="disco-nav disco-nav-next" aria-label="Next release">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="size-5"><path d="M9 18l6-6-6-6"></path></svg
+            >
+          </button>
         </div>
       </div>
 
-      <!-- Remixes -->
+      <!-- ═══ Remixes Carousel ═══ -->
       <div class="space-y-8 pt-8">
         <h3
           class="text-3xl font-bold font-sans text-shadow-red-900 flex items-center gap-3"
         >
           <span class="icon-[tabler--vinyl] size-8"></span>Remixes
         </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10">
-          <div
-            class="discography-item group cursor-pointer flex flex-col gap-4"
-          >
-            <div class="glass-card p-4">
-              <div
-                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-secondary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
-              >
-                <Image
-                  src={imgDwul}
-                  alt="ILLENIUM & Ellie Goulding - Don't Want Your Love (NRVA Remix)"
-                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                >
-                </div>
 
-                <div
-                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75 z-10"
-                >
-                  <span
-                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
-                    >Preview</span
-                  >
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-secondary btn-circle shadow-lg shadow-secondary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
-                  >
-                    <i class="fas fa-play ml-1 text-lg"></i>
-                  </a>
+        <div class="disco-carousel-wrap relative">
+          <div class="swiper disco-swiper-remixes">
+            <div class="swiper-wrapper">
+              <!-- Remix 1: Don't Want Your Love -->
+              <div class="swiper-slide disco-slide">
+                <div class="disco-slide-inner group">
+                  <div class="disco-art-frame">
+                    <Image
+                      src={imgDwul}
+                      alt="ILLENIUM & Ellie Goulding - Don't Want Your Love (NRVA Remix)"
+                      class="disco-art"
+                    />
+                    <div class="disco-art-overlay"></div>
+                    <div class="disco-art-actions">
+                      <span class="disco-badge">Remix</span>
+                      <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener"
+                        class="disco-play-btn disco-play-btn--remix"
+                        aria-label="Play Don't Want Your Love Remix"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="size-5 ml-0.5"
+                          ><path d="M8 5v14l11-7z"></path></svg
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="disco-info">
+                    <h4
+                      class="disco-title disco-title--remix"
+                      title="ILLENIUM & Ellie Goulding - Don't Want Your Love (NRVA Remix)"
+                    >
+                      Don't Want Your Love (NRVA Remix)
+                    </h4>
+                    <p class="disco-meta">ILLENIUM & Ellie Goulding</p>
+                  </div>
                 </div>
               </div>
-              <div>
-                <h4
-                  class="font-bold text-md leading-tight group-hover:text-secondary transition-colors line-clamp-1 mt-4"
-                  title="ILLENIUM & Ellie Goulding - Don't Want Your Love (NRVA Remix)"
-                >
-                  ILLENIUM & Ellie Goulding - Don't Want Your Love (NRVA Remix)
-                </h4>
-                <p class="text-sm text-base-content/60 font-mono mt-1">Remix</p>
+
+              <!-- Remix 2: Halfway There -->
+              <div class="swiper-slide disco-slide">
+                <div class="disco-slide-inner group">
+                  <div class="disco-art-frame">
+                    <Image
+                      src={imgHalfway}
+                      alt="Said The Sky - Halfway There (NRVA Remix)"
+                      class="disco-art"
+                    />
+                    <div class="disco-art-overlay"></div>
+                    <div class="disco-art-actions">
+                      <span class="disco-badge">Remix</span>
+                      <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener"
+                        class="disco-play-btn disco-play-btn--remix"
+                        aria-label="Play Halfway There Remix"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="size-5 ml-0.5"
+                          ><path d="M8 5v14l11-7z"></path></svg
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="disco-info">
+                    <h4
+                      class="disco-title disco-title--remix"
+                      title="Said The Sky - Halfway There (NRVA Remix)"
+                    >
+                      Halfway There (NRVA Remix)
+                    </h4>
+                    <p class="disco-meta">Said The Sky</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Remix 3: You'll Be In My Heart -->
+              <div class="swiper-slide disco-slide">
+                <div class="disco-slide-inner group">
+                  <div class="disco-art-frame">
+                    <Image
+                      src={imgNiki}
+                      alt="NIKI - You'll Be In My Heart (NRVA Remix)"
+                      class="disco-art"
+                    />
+                    <div class="disco-art-overlay"></div>
+                    <div class="disco-art-actions">
+                      <span class="disco-badge">Remix</span>
+                      <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener"
+                        class="disco-play-btn disco-play-btn--remix"
+                        aria-label="Play You'll Be In My Heart Remix"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="size-5 ml-0.5"
+                          ><path d="M8 5v14l11-7z"></path></svg
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="disco-info">
+                    <h4
+                      class="disco-title disco-title--remix"
+                      title="NIKI - You'll Be In My Heart (NRVA Remix)"
+                    >
+                      You'll Be In My Heart (NRVA Remix)
+                    </h4>
+                    <p class="disco-meta">NIKI</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Remix 4: Save My Love -->
+              <div class="swiper-slide disco-slide">
+                <div class="disco-slide-inner group">
+                  <div class="disco-art-frame">
+                    <Image
+                      src={imgUntitled}
+                      alt="Marshmello, Avalon, Ellie Goulding - Save My Love (NRVA Remix)"
+                      class="disco-art"
+                    />
+                    <div class="disco-art-overlay"></div>
+                    <div class="disco-art-actions">
+                      <span class="disco-badge">Remix</span>
+                      <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener"
+                        class="disco-play-btn disco-play-btn--remix"
+                        aria-label="Play Save My Love Remix"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="size-5 ml-0.5"
+                          ><path d="M8 5v14l11-7z"></path></svg
+                        >
+                      </a>
+                    </div>
+                  </div>
+                  <div class="disco-info">
+                    <h4
+                      class="disco-title disco-title--remix"
+                      title="Marshmello, Avalon, Ellie Goulding - Save My Love (NRVA Remix)"
+                    >
+                      Save My Love (NRVA Remix)
+                    </h4>
+                    <p class="disco-meta">
+                      Marshmello, Avalon & Ellie Goulding
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination disco-pagination-remix"></div>
           </div>
-          <div
-            class="discography-item group cursor-pointer flex flex-col gap-4"
-          >
-            <div class="glass-card p-4">
-              <div
-                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-secondary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
-              >
-                <Image
-                  src={imgHalfway}
-                  alt="Said The Sky - Halfway There (NRVA Remix)"
-                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                >
-                </div>
 
-                <div
-                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75 z-10"
-                >
-                  <span
-                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
-                    >Preview</span
-                  >
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-secondary btn-circle shadow-lg shadow-secondary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
-                  >
-                    <i class="fas fa-play ml-1 text-lg"></i>
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h4
-                  class="font-bold text-md leading-tight group-hover:text-secondary transition-colors line-clamp-1 mt-4"
-                  title="Said The Sky - Halfway There (NRVA Remix)"
-                >
-                  Said The Sky - Halfway There (NRVA Remix)
-                </h4>
-                <p class="text-sm text-base-content/60 font-mono mt-1">Remix</p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="discography-item group cursor-pointer flex flex-col gap-4"
+          <!-- Custom Navigation -->
+          <button
+            class="disco-nav disco-nav-prev-remix"
+            aria-label="Previous remix"
           >
-            <div class="glass-card p-4">
-              <div
-                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-secondary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
-              >
-                <Image
-                  src={imgNiki}
-                  alt="NIKI - You'll Be In My Heart (NRVA Remix)"
-                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                >
-                </div>
-
-                <div
-                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75 z-10"
-                >
-                  <span
-                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
-                    >Preview</span
-                  >
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-secondary btn-circle shadow-lg shadow-secondary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
-                  >
-                    <i class="fas fa-play ml-1 text-lg"></i>
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h4
-                  class="font-bold text-md leading-tight group-hover:text-secondary transition-colors line-clamp-1 mt-4"
-                  title="NIKI - You'll Be In My Heart (NRVA Remix)"
-                >
-                  NIKI - You'll Be In My Heart (NRVA Remix)
-                </h4>
-                <p class="text-sm text-base-content/60 font-mono mt-1">Remix</p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="discography-item group cursor-pointer flex flex-col gap-4"
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="size-5"><path d="M15 18l-6-6 6-6"></path></svg
+            >
+          </button>
+          <button
+            class="disco-nav disco-nav-next-remix"
+            aria-label="Next remix"
           >
-            <div class="glass-card p-4">
-              <div
-                class="w-full aspect-square bg-base-300/50 rounded-none overflow-hidden relative shadow-md group-hover:shadow-[0_15px_40px_rgba(var(--color-secondary),0.25)] group-hover:-translate-y-2 transition-all duration-500"
-              >
-                <Image
-                  src={imgUntitled}
-                  alt="Marshmello, Avalon, Ellie Goulding - Save My Love (NRVA Remix)"
-                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                >
-                </div>
-
-                <div
-                  class="absolute inset-x-0 bottom-0 p-4 flex justify-between items-end translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-75 z-10"
-                >
-                  <span
-                    class="text-white font-medium text-sm tracking-wide bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20"
-                    >Preview</span
-                  >
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-secondary btn-circle shadow-lg shadow-secondary/30 scale-90 group-hover:scale-100 transition-transform duration-300"
-                  >
-                    <i class="fas fa-play ml-1 text-lg"></i>
-                  </a>
-                </div>
-              </div>
-              <div>
-                <h4
-                  class="font-bold text-md leading-tight group-hover:text-secondary transition-colors line-clamp-1 mt-4"
-                  title="Marshmello, Avalon, Ellie Goulding - Save My Love (NRVA Remix)"
-                >
-                  Marshmello, Avalon, Ellie Goulding - Save My Love (NRVA Remix)
-                </h4>
-                <p class="text-sm text-base-content/60 font-mono mt-1">Remix</p>
-              </div>
-            </div>
-          </div>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="size-5"><path d="M9 18l6-6-6-6"></path></svg
+            >
+          </button>
         </div>
       </div>
     </section>
@@ -973,11 +1022,71 @@ import imgDieweomom from "../assets/images/dieweomom.webp";
     import Lenis from "lenis";
     import { gsap } from "gsap";
     import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import Swiper from "swiper";
+    import {
+      EffectCoverflow,
+      Pagination,
+      Navigation,
+      Autoplay,
+    } from "swiper/modules";
+    import "swiper/css";
+    import "swiper/css/effect-coverflow";
+    import "swiper/css/pagination";
+    import "swiper/css/navigation";
 
     // Register GSAP plugins
     gsap.registerPlugin(ScrollTrigger);
 
     document.addEventListener("astro:page-load", () => {
+      // === SWIPER DISCOGRAPHY CAROUSELS ===
+      const swiperConfig = {
+        modules: [EffectCoverflow, Pagination, Navigation, Autoplay],
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        loop: true,
+        speed: 600,
+        coverflowEffect: {
+          rotate: 35,
+          stretch: 0,
+          depth: 120,
+          modifier: 1,
+          slideShadows: true,
+        },
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: true,
+          pauseOnMouseEnter: true,
+        },
+      };
+
+      // Releases Carousel
+      new Swiper(".disco-swiper-releases", {
+        ...swiperConfig,
+        pagination: {
+          el: ".disco-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".disco-nav-next",
+          prevEl: ".disco-nav-prev",
+        },
+      });
+
+      // Remixes Carousel
+      new Swiper(".disco-swiper-remixes", {
+        ...swiperConfig,
+        pagination: {
+          el: ".disco-pagination-remix",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".disco-nav-next-remix",
+          prevEl: ".disco-nav-prev-remix",
+        },
+      });
+
       // === LENIS SMOOTH SCROLL ===
       const lenis = new Lenis({
         duration: 1.2,
@@ -1209,11 +1318,9 @@ import imgDieweomom from "../assets/images/dieweomom.webp";
         });
       });
 
-      // === GSAP STAGGER REVEAL (For Grids like Discography & Presence) ===
-      // Target grids that contain cards
-      const staggerContainers = gsap.utils.toArray(
-        "#discography .grid, .stagger-children",
-      );
+      // === GSAP STAGGER REVEAL (For Grids & Carousels) ===
+      // Target grids and stagger-children containers (Discography now uses Swiper)
+      const staggerContainers = gsap.utils.toArray(".stagger-children");
 
       staggerContainers.forEach((container) => {
         const children = gsap.utils.toArray(container.children);

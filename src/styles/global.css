@@ -189,3 +189,346 @@
 	scrollbar-width: thin;
 	scrollbar-color: var(--color-accent) transparent;
 }
+
+
+/* ═══════════════════════════════════════════
+   Discography — Swiper Coverflow Carousel
+   ═══════════════════════════════════════════ */
+
+/* Carousel wrapper — breaks out of max-w-4xl for immersive feel */
+.disco-carousel-wrap {
+	margin-left: calc(-50vw + 50%);
+	margin-right: calc(-50vw + 50%);
+	width: 100vw;
+	padding: 0 0 var(--space-lg);
+	overflow: hidden;
+}
+
+/* Swiper container */
+.disco-swiper-releases,
+.disco-swiper-remixes {
+	width: 100%;
+	padding-bottom: 52px !important; /* room for pagination */
+	overflow: visible;
+}
+
+/* Individual slide sizing */
+.disco-slide {
+	width: 280px !important;
+	background: transparent;
+}
+@media (min-width: 640px) {
+	.disco-slide {
+		width: 320px !important;
+	}
+}
+@media (min-width: 768px) {
+	.disco-slide {
+		width: 360px !important;
+	}
+}
+
+/* Slide inner wrapper */
+.disco-slide-inner {
+	padding: 12px;
+	border-radius: 0;
+	background: rgba(255, 255, 255, 0.03);
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	transition: all var(--dur-medium) var(--ease-out);
+}
+.disco-slide-inner:hover {
+	background: rgba(255, 255, 255, 0.07);
+	border-color: rgba(255, 255, 255, 0.14);
+	box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+}
+
+/* Light mode inner */
+:root[data-theme="light"] .disco-slide-inner {
+	background: rgba(255, 255, 255, 0.5);
+	border-color: rgba(0, 0, 0, 0.06);
+}
+:root[data-theme="light"] .disco-slide-inner:hover {
+	background: rgba(255, 255, 255, 0.75);
+	border-color: rgba(0, 0, 0, 0.12);
+	box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+}
+
+/* Art frame */
+.disco-art-frame {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1;
+	overflow: hidden;
+	border-radius: 0;
+}
+
+/* Art image */
+.disco-art {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.7s var(--ease-out);
+}
+.disco-slide-inner:hover .disco-art {
+	transform: scale(1.08);
+}
+
+/* Gradient overlay on hover */
+.disco-art-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.05) 50%, transparent 100%);
+	opacity: 0;
+	transition: opacity var(--dur-short) ease;
+	pointer-events: none;
+}
+.disco-slide-inner:hover .disco-art-overlay {
+	opacity: 1;
+}
+
+/* Actions bar (badge + play button) */
+.disco-art-actions {
+	position: absolute;
+	inset-inline: 0;
+	bottom: 0;
+	padding: 12px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	transform: translateY(8px);
+	opacity: 0;
+	transition: all var(--dur-short) ease var(--dur-short);
+	z-index: 10;
+}
+.disco-slide-inner:hover .disco-art-actions {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+/* Badge label */
+.disco-badge {
+	font-size: 0.75rem;
+	font-weight: 500;
+	letter-spacing: 0.05em;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.45);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	padding: 6px 14px;
+	border-radius: 9999px;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Play button */
+.disco-play-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: var(--color-accent);
+	color: var(--color-accent-ink);
+	box-shadow: 0 4px 20px color-mix(in srgb, var(--color-accent) 40%, transparent);
+	transition: transform var(--dur-short) var(--ease-out),
+	            box-shadow var(--dur-short) var(--ease-out);
+}
+.disco-play-btn:hover {
+	transform: scale(1.1);
+	box-shadow: 0 6px 28px color-mix(in srgb, var(--color-accent) 60%, transparent);
+}
+.disco-play-btn--remix {
+	background: var(--color-accent);
+}
+
+/* Info block */
+.disco-info {
+	padding: var(--space-2xs) var(--space-3xs);
+	margin-top: var(--space-2xs);
+}
+.disco-title {
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.3;
+	color: var(--color-ink);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	transition: color var(--dur-short) ease;
+}
+.disco-slide-inner:hover .disco-title {
+	color: var(--color-accent);
+}
+.disco-title--remix:hover {
+	color: var(--color-accent);
+}
+.disco-meta {
+	font-size: 0.8125rem;
+	font-family: var(--font-mono);
+	color: var(--color-muted);
+	margin-top: 4px;
+}
+
+/* ─── Navigation Arrows ─── */
+.disco-nav {
+	position: absolute;
+	top: 42%;
+	transform: translateY(-50%);
+	z-index: 20;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255, 255, 255, 0.06);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	color: var(--color-ink);
+	cursor: pointer;
+	transition: all var(--dur-short) var(--ease-out);
+}
+.disco-nav:hover {
+	background: var(--color-accent);
+	color: var(--color-accent-ink);
+	border-color: var(--color-accent);
+	box-shadow: 0 4px 20px color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+/* Light mode nav */
+:root[data-theme="light"] .disco-nav {
+	background: rgba(0, 0, 0, 0.04);
+	border-color: rgba(0, 0, 0, 0.08);
+}
+:root[data-theme="light"] .disco-nav:hover {
+	background: var(--color-accent);
+	color: #fff;
+}
+
+/* Position left/right */
+.disco-nav-prev,
+.disco-nav-prev-remix {
+	left: max(12px, calc(50% - 240px));
+}
+.disco-nav-next,
+.disco-nav-next-remix {
+	right: max(12px, calc(50% - 240px));
+}
+@media (min-width: 768px) {
+	.disco-nav-prev,
+	.disco-nav-prev-remix {
+		left: max(24px, calc(50% - 300px));
+	}
+	.disco-nav-next,
+	.disco-nav-next-remix {
+		right: max(24px, calc(50% - 300px));
+	}
+}
+
+/* Hide arrows on mobile — swipe is more natural */
+@media (max-width: 639px) {
+	.disco-nav {
+		display: none;
+	}
+}
+
+/* ─── Pagination Dots ─── */
+.disco-pagination,
+.disco-pagination-remix {
+	text-align: center;
+	margin-top: var(--space-sm);
+}
+
+/* Override Swiper pagination bullet colors */
+.disco-swiper-releases .swiper-pagination-bullet,
+.disco-swiper-remixes .swiper-pagination-bullet {
+	width: 8px;
+	height: 8px;
+	background: var(--color-muted) !important;
+	opacity: 0.4;
+	transition: all var(--dur-short) ease;
+}
+.disco-swiper-releases .swiper-pagination-bullet-active,
+.disco-swiper-remixes .swiper-pagination-bullet-active {
+	background: var(--color-accent) !important;
+	opacity: 1;
+	width: 24px;
+	border-radius: 9999px;
+}
+
+/* Swiper slide shadows — make them match the dark theme */
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+	border-radius: 0;
+}
+
+
+/* ═══════════════════════════════════════════
+   FlipText — CSS-only character flip animation
+   Adapted from VengeanceUI's FlipText React component
+   ═══════════════════════════════════════════ */
+
+.flip-text-wrapper {
+	display: block;
+	line-height: 1.4;
+	text-align: center;
+}
+
+.flip-word {
+	display: inline-block;
+	white-space: nowrap;
+}
+
+.flip-space {
+	display: inline-block;
+}
+
+.flip-char {
+	display: inline-block;
+	position: relative;
+	animation: flipChar 2.8s var(--flip-delay, 0s) infinite;
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+}
+
+@keyframes flipChar {
+	0% {
+		transform: rotateX(-80deg);
+		opacity: 0;
+		filter: blur(4px);
+	}
+	15% {
+		transform: rotateX(10deg);
+		opacity: 1;
+		filter: blur(0);
+	}
+	20% {
+		transform: rotateX(-4deg);
+	}
+	25%, 75% {
+		transform: rotateX(0deg);
+		opacity: 1;
+		filter: blur(0);
+	}
+	90% {
+		transform: rotateX(80deg);
+		opacity: 0;
+		filter: blur(4px);
+	}
+	100% {
+		transform: rotateX(-80deg);
+		opacity: 0;
+		filter: blur(4px);
+	}
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+	.flip-char {
+		animation: none;
+		transform: none;
+		opacity: 1;
+		filter: none;
+	}
+}

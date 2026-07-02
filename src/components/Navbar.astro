@@ -3,52 +3,104 @@ export interface Props {
   isCorePage?: boolean;
 }
 const { isCorePage = false } = Astro.props;
+
+const mainItems = [
+  { label: "Latest", href: "/#latest" },
+  { label: "About", href: "/#about" },
+  { label: "Discography", href: "/#discography" },
+  { label: "Core", href: "/core" },
+];
+
+const coreItems = [{ label: "Home", href: "/" }];
+
+const items = isCorePage ? coreItems : mainItems;
 ---
 
-<nav
-  class="nav-pill bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg"
-  aria-label="Primary"
->
-  <a href="/" class="nav-wordmark">
-    <img
-      src="/Both white.svg"
-      alt="NRVA"
-      class="h-6 w-auto opacity-90 hover:opacity-100 transition-opacity nav-logo"
-    />
-  </a>
-  <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" hidden />
-  <div class="nav-links">
-    {
-      isCorePage ? (
-        <a href="/">Home</a>
-      ) : (
-        <>
-          <a href="/#latest">Latest</a>
-          <a href="/#about">About</a>
-          <a href="/#discography">Discography</a>
-          <a href="/core">Core</a>
-        </>
-      )
-    }
+<div class="spotlight-navbar-container">
+  <nav
+    id="spotlight-nav"
+    class="spotlight-nav"
+    aria-label="Primary"
+  >
+    <!-- Logo (left side, outside the pill on desktop) -->
+    <a href="/" class="spotlight-logo" aria-label="NRVA Home">
+      <img
+        src="/Both white.svg"
+        alt="NRVA"
+        class="h-5 w-auto opacity-90 hover:opacity-100 transition-opacity nav-logo"
+      />
+    </a>
+
+    <!-- Nav Links -->
+    <ul class="spotlight-links" id="spotlight-links">
+      {items.map((item, idx) => (
+        <li>
+          <a
+            href={item.href}
+            data-index={idx}
+            class:list={[
+              "spotlight-link",
+              { "is-active": idx === 0 },
+            ]}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Lighting Layers -->
+    <!-- 1. Mouse spotlight (follows cursor) -->
+    <div class="spotlight-glow" id="spotlight-glow"></div>
+    <!-- 2. Active item ambience (bottom line) -->
+    <div class="spotlight-ambience" id="spotlight-ambience"></div>
+
+    <!-- Right side actions -->
+    <div class="spotlight-actions">
+      <button id="theme-toggle" class="spotlight-theme-btn" aria-label="Toggle Theme">
+        <svg class="dark-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+        <svg class="light-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/></svg>
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button class="spotlight-hamburger" id="spotlight-hamburger" aria-label="Toggle Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="7" x2="20" y2="7" class="ham-top"/>
+          <line x1="4" y1="12" x2="20" y2="12" class="ham-mid"/>
+          <line x1="4" y1="17" x2="20" y2="17" class="ham-bot"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile dropdown -->
+  <div class="spotlight-mobile-menu" id="spotlight-mobile-menu">
+    <ul>
+      {items.map((item, idx) => (
+        <li>
+          <a
+            href={item.href}
+            class:list={[
+              "spotlight-mobile-link",
+              { "is-active": idx === 0 },
+            ]}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
   </div>
-  <div class="nav-actions">
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
-      <i class="fas fa-moon dark-icon"></i>
-      <i class="fas fa-sun light-icon" style="display: none;"></i>
-    </button>
-    <a href="/#latest" class="nav-cta">Listen</a>
-    <label for="nav-toggle" class="nav-toggle-label">Menu</label>
-  </div>
-</nav>
+</div>
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    // Theme Toggle Logic
+    // === Theme Toggle Logic ===
     const themeToggle = document.getElementById("theme-toggle");
-    const darkIcon = document.querySelector(".dark-icon");
-    const lightIcon = document.querySelector(".light-icon");
+    const darkIcon = document.querySelector(".dark-icon") as HTMLElement;
+    const lightIcon = document.querySelector(".light-icon") as HTMLElement;
 
-    function updateIcons(theme) {
+    function updateIcons(theme: string) {
       if (theme === "light") {
         darkIcon.style.display = "none";
         lightIcon.style.display = "block";
@@ -58,147 +110,429 @@ const { isCorePage = false } = Astro.props;
       }
     }
 
-    // Check saved theme or system preference
     let currentTheme = localStorage.getItem("theme");
     if (!currentTheme) {
       currentTheme = window.matchMedia("(prefers-color-scheme: light)").matches
         ? "light"
         : "dark";
     }
-
-    if (currentTheme === "light") {
-      document.documentElement.setAttribute("data-theme", "light");
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
-    }
+    document.documentElement.setAttribute("data-theme", currentTheme);
     updateIcons(currentTheme);
 
-    // Toggle theme
     themeToggle?.addEventListener("click", () => {
       const isLight =
         document.documentElement.getAttribute("data-theme") === "light";
       const newTheme = isLight ? "dark" : "light";
-
-      if (newTheme === "light") {
-        document.documentElement.setAttribute("data-theme", "light");
-      } else {
-        document.documentElement.setAttribute("data-theme", "dark");
-      }
-
+      document.documentElement.setAttribute("data-theme", newTheme);
       localStorage.setItem("theme", newTheme);
       updateIcons(newTheme);
     });
+
+    // === Spotlight Navbar Logic ===
+    const nav = document.getElementById("spotlight-nav");
+    const glowEl = document.getElementById("spotlight-glow") as HTMLElement;
+    const ambienceEl = document.getElementById("spotlight-ambience") as HTMLElement;
+    const links = nav?.querySelectorAll(".spotlight-link") as NodeListOf<HTMLElement>;
+    const hamburger = document.getElementById("spotlight-hamburger");
+    const mobileMenu = document.getElementById("spotlight-mobile-menu");
+
+    if (!nav || !glowEl || !ambienceEl) return;
+
+    let activeIndex = 0;
+    let spotlightX = 0;
+    let ambienceX = 0;
+    let ambienceTarget = 0;
+    let isHovering = false;
+
+    // Spring interpolation helper
+    function springLerp(current: number, target: number, stiffness = 0.12, damping = 0.85): number {
+      const diff = target - current;
+      return current + diff * stiffness;
+    }
+
+    // Get center X of an item relative to nav
+    function getItemCenterX(index: number): number {
+      const item = nav!.querySelector(`[data-index="${index}"]`) as HTMLElement;
+      if (!item) return 0;
+      const navRect = nav!.getBoundingClientRect();
+      const itemRect = item.getBoundingClientRect();
+      return itemRect.left - navRect.left + itemRect.width / 2;
+    }
+
+    // Initialize ambience position
+    function initAmbience() {
+      const x = getItemCenterX(activeIndex);
+      ambienceX = x;
+      ambienceTarget = x;
+      spotlightX = x;
+      nav!.style.setProperty("--ambience-x", `${x}px`);
+      nav!.style.setProperty("--spotlight-x", `${x}px`);
+    }
+
+    // Determine active item from URL
+    function detectActiveFromURL() {
+      const path = window.location.pathname;
+      const hash = window.location.hash;
+      links.forEach((link, idx) => {
+        const href = link.getAttribute("href") || "";
+        const isActive =
+          (href === path) ||
+          (hash && href.endsWith(hash)) ||
+          (idx === 0 && !hash && path === "/");
+        link.classList.toggle("is-active", isActive);
+        if (isActive) activeIndex = idx;
+      });
+    }
+
+    detectActiveFromURL();
+    // Delay init to ensure layout is settled
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        initAmbience();
+      });
+    });
+
+    // Ambience animation loop
+    let animating = true;
+    function animateLoop() {
+      if (!animating) return;
+
+      // Spring the ambience toward target
+      ambienceX = springLerp(ambienceX, ambienceTarget, 0.1);
+      nav!.style.setProperty("--ambience-x", `${ambienceX}px`);
+
+      // If not hovering, spring spotlight back to active item too
+      if (!isHovering) {
+        const targetX = getItemCenterX(activeIndex);
+        spotlightX = springLerp(spotlightX, targetX, 0.08);
+        nav!.style.setProperty("--spotlight-x", `${spotlightX}px`);
+      }
+
+      requestAnimationFrame(animateLoop);
+    }
+    animateLoop();
+
+    // Mouse events for spotlight
+    nav.addEventListener("mousemove", (e: MouseEvent) => {
+      const rect = nav!.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      isHovering = true;
+      spotlightX = x;
+      nav!.style.setProperty("--spotlight-x", `${x}px`);
+      glowEl.style.opacity = "1";
+    });
+
+    nav.addEventListener("mouseleave", () => {
+      isHovering = false;
+      glowEl.style.opacity = "0";
+    });
+
+    // Click handler
+    links.forEach((link, idx) => {
+      link.addEventListener("click", () => {
+        links.forEach((l) => l.classList.remove("is-active"));
+        link.classList.add("is-active");
+        activeIndex = idx;
+        ambienceTarget = getItemCenterX(idx);
+      });
+    });
+
+    // Mobile menu toggle
+    hamburger?.addEventListener("click", () => {
+      const isOpen = mobileMenu?.classList.toggle("is-open");
+      hamburger.classList.toggle("is-open", isOpen);
+    });
+
+    // Mobile link clicks
+    mobileMenu?.querySelectorAll(".spotlight-mobile-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("is-open");
+        hamburger?.classList.remove("is-open");
+      });
+    });
+
+    // Clean up on page unload
+    document.addEventListener("astro:before-swap", () => {
+      animating = false;
+    }, { once: true });
   });
 </script>
 
 <style>
-  .nav-pill {
+  /* ═══════════════════════════════════════════
+     Spotlight Navbar — Adapted from VengeanceUI
+     ═══════════════════════════════════════════ */
+
+  .spotlight-navbar-container {
     position: fixed;
-    top: var(--space-md);
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(90%, 640px);
-    height: 56px;
-    border-radius: var(--radius-pill);
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 var(--space-xs) 0 var(--space-lg);
+    padding-top: var(--space-md);
     z-index: 100;
-    box-shadow: var(--neumorph-out);
+    pointer-events: none;
   }
-  .nav-wordmark {
-    font-family: var(--font-display);
-    font-weight: 900;
-    font-size: var(--text-md);
-    letter-spacing: -0.02em;
-    color: var(--color-ink);
-  }
-  .nav-links {
-    display: flex;
-    gap: var(--space-sm);
-    font-size: var(--text-sm);
-    font-weight: 500;
-  }
-  .nav-links a {
-    color: var(--color-ink-2);
-    padding: var(--space-3xs) var(--space-2xs);
-  }
-  .nav-links a:hover {
-    color: var(--color-accent);
-  }
-  .nav-actions {
+
+  .spotlight-nav {
+    position: relative;
+    height: 48px;
+    border-radius: var(--radius-pill);
     display: flex;
     align-items: center;
-    gap: var(--space-2xs);
+    gap: 0;
+    padding: 0 var(--space-xs);
+    overflow: hidden;
+    pointer-events: auto;
+
+    /* Glass background */
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    /* CSS vars for lighting */
+    --spotlight-x: 50%;
+    --ambience-x: 50%;
+    --spotlight-color: rgba(255, 255, 255, 0.12);
+    --ambience-color: rgba(255, 255, 255, 0.9);
+
+    transition: box-shadow var(--dur-medium) var(--ease-out);
   }
-  .nav-cta {
-    background: var(--color-paper);
-    color: var(--color-accent);
-    padding: var(--space-2xs) var(--space-sm);
+
+  /* Light mode */
+  :root[data-theme="light"] .spotlight-nav {
+    background: rgba(255, 255, 255, 0.65);
+    border-color: rgba(0, 0, 0, 0.06);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+    --spotlight-color: rgba(0, 0, 0, 0.06);
+    --ambience-color: rgba(0, 0, 0, 0.8);
+  }
+
+  :root[data-theme="light"] .nav-logo {
+    filter: invert(1);
+  }
+
+  /* Logo */
+  .spotlight-logo {
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-xs) 0 var(--space-2xs);
+    z-index: 10;
+    flex-shrink: 0;
+  }
+
+  /* Links */
+  .spotlight-links {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 10;
+  }
+
+  .spotlight-link {
+    display: block;
+    padding: 6px 16px;
+    font-size: 0.8125rem;
+    font-weight: 500;
     border-radius: var(--radius-pill);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    box-shadow: var(--neumorph-out-sm);
-    transition: all var(--dur-short, 0.2s) var(--ease-out, ease);
+    color: var(--color-muted);
+    transition: color 200ms ease;
+    white-space: nowrap;
+    text-decoration: none;
   }
-  .nav-cta:hover {
-    transform: translateY(1px);
-    box-shadow: var(--neumorph-in-sm);
-    color: var(--color-accent);
-  }
-  .theme-toggle {
-    background: var(--color-paper);
-    border: none;
+
+  .spotlight-link:hover {
     color: var(--color-ink);
-    width: 32px;
-    height: 32px;
+  }
+
+  .spotlight-link.is-active {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  /* ─── Lighting Layers ─── */
+
+  /* Spotlight glow (follows mouse) */
+  .spotlight-glow {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 300ms ease;
+    background: radial-gradient(
+      120px circle at var(--spotlight-x) 100%,
+      var(--spotlight-color) 0%,
+      transparent 50%
+    );
+  }
+
+  /* Ambience line (active indicator) */
+  .spotlight-ambience {
+    pointer-events: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    z-index: 2;
+    background: radial-gradient(
+      60px circle at var(--ambience-x) 0%,
+      var(--ambience-color) 0%,
+      transparent 100%
+    );
+  }
+
+  /* ─── Actions ─── */
+  .spotlight-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    margin-left: auto;
+    padding-left: var(--space-2xs);
+    z-index: 10;
+  }
+
+  .spotlight-theme-btn {
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--color-muted);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: var(--neumorph-out-sm);
-    transition: all 0.3s ease;
+    transition: all 200ms ease;
   }
-  .theme-toggle:hover {
-    box-shadow: var(--neumorph-in-sm);
-    color: var(--color-accent);
+  .spotlight-theme-btn:hover {
+    color: var(--color-ink);
+    background: rgba(255, 255, 255, 0.08);
   }
-  .nav-toggle-label {
+  :root[data-theme="light"] .spotlight-theme-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  /* ─── Hamburger (mobile only) ─── */
+  .spotlight-hamburger {
     display: none;
-    font-size: var(--text-sm);
-    font-weight: 500;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--color-muted);
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    padding: var(--space-2xs);
+    transition: color 200ms ease;
   }
+  .spotlight-hamburger:hover {
+    color: var(--color-ink);
+  }
+  .spotlight-hamburger .ham-top,
+  .spotlight-hamburger .ham-mid,
+  .spotlight-hamburger .ham-bot {
+    transition: all 300ms var(--ease-out);
+    transform-origin: center;
+  }
+  .spotlight-hamburger.is-open .ham-top {
+    transform: translateY(5px) rotate(45deg);
+  }
+  .spotlight-hamburger.is-open .ham-mid {
+    opacity: 0;
+  }
+  .spotlight-hamburger.is-open .ham-bot {
+    transform: translateY(-5px) rotate(-45deg);
+  }
+
+  /* ─── Mobile Menu ─── */
+  .spotlight-mobile-menu {
+    display: none;
+    pointer-events: auto;
+  }
+
+  /* ─── Responsive ─── */
   @media (max-width: 640px) {
-    .nav-links {
+    .spotlight-links {
+      display: none;
+    }
+    .spotlight-hamburger {
+      display: flex;
+    }
+    .spotlight-glow,
+    .spotlight-ambience {
+      display: none;
+    }
+
+    .spotlight-mobile-menu {
+      display: block;
+      margin-top: var(--space-2xs);
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(24px) saturate(1.4);
+      -webkit-backdrop-filter: blur(24px) saturate(1.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: var(--space-2xs);
       opacity: 0;
       visibility: hidden;
-      transform: translateY(-10px);
+      transform: translateY(-8px);
       transition:
-        opacity var(--dur-medium, 0.3s) var(--ease-out, ease),
-        transform var(--dur-medium, 0.3s) var(--ease-out, ease),
-        visibility var(--dur-medium, 0.3s) var(--ease-out, ease);
-      position: absolute;
-      top: calc(100% + var(--space-xs));
-      left: 0;
-      width: 100%;
-      background: var(--color-paper);
-      border-radius: var(--radius-lg);
-      padding: var(--space-md);
-      flex-direction: column;
-      gap: var(--space-md);
-      box-shadow: var(--neumorph-out);
+        opacity 300ms var(--ease-out),
+        transform 300ms var(--ease-out),
+        visibility 300ms var(--ease-out);
     }
-    .nav-toggle-checkbox:checked ~ .nav-links {
+    .spotlight-mobile-menu.is-open {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
-    .nav-toggle-label {
+    :root[data-theme="light"] .spotlight-mobile-menu {
+      background: rgba(255, 255, 255, 0.7);
+      border-color: rgba(0, 0, 0, 0.06);
+    }
+
+    .spotlight-mobile-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .spotlight-mobile-link {
       display: block;
+      padding: 10px 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      border-radius: 14px;
+      transition: all 200ms ease;
+      text-decoration: none;
+    }
+    .spotlight-mobile-link:hover,
+    .spotlight-mobile-link.is-active {
+      color: var(--color-ink);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    :root[data-theme="light"] .spotlight-mobile-link:hover,
+    :root[data-theme="light"] .spotlight-mobile-link.is-active {
+      background: rgba(0, 0, 0, 0.04);
     }
   }
 </style>
