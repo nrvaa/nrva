@@ -361,12 +361,12 @@ export const GlassDock = React.forwardRef<HTMLDivElement, GlassDockProps>(
         return (
             <div
                 ref={ref}
-                className={cn('w-max', className)}
+                className={cn('w-full md:w-max max-w-full overflow-x-auto scrollbar-hide', className)}
                 {...props}
             >
                 <div
                     className={cn(
-                        "glass-dock relative flex gap-4 items-center px-6 py-4 rounded-2xl",
+                        "glass-dock relative flex gap-2 sm:gap-3 md:gap-4 items-center px-4 md:px-6 py-3 md:py-4 rounded-2xl mx-auto w-max",
                         "glass-border bg-white/80 dark:bg-black/80",
                         "backdrop-blur-xl shadow-2xl justify-center",
                         dockClassName
@@ -457,7 +457,7 @@ export const GlassDock = React.forwardRef<HTMLDivElement, GlassDockProps>(
                                 key={el.title}
                                 onMouseEnter={() => handleMouseEnter(index)}
                                 onClick={handleClick}
-                                className="relative w-10 h-10 flex items-center justify-center cursor-pointer"
+                                className="relative w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex items-center justify-center cursor-pointer shrink-0"
                                 role="button"
                                 tabIndex={0}
                                 onKeyDown={(e) => {
@@ -473,6 +473,7 @@ export const GlassDock = React.forwardRef<HTMLDivElement, GlassDockProps>(
                                         y: isHovered ? -3 : 0,
                                     }}
                                     transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+                                    className="w-full h-full flex items-center justify-center"
                                 >
                                     {isAnimated ? (
                                         <MorphingIcon
@@ -487,7 +488,7 @@ export const GlassDock = React.forwardRef<HTMLDivElement, GlassDockProps>(
                                     ) : (
                                         <Icon
                                             className={cn(
-                                                'h-[22px] w-[22px] transition-colors duration-200',
+                                                'h-5 w-5 sm:h-[20px] sm:w-[20px] md:h-[22px] md:w-[22px] transition-colors duration-200',
                                                 isHovered
                                                     ? 'text-neutral-900 dark:text-white'
                                                     : 'text-neutral-500 dark:text-neutral-400'
