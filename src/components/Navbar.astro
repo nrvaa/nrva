@@ -1,5 +1,5 @@
 ---
-import { ThemeToggleButton } from './ThemeToggle';
+import { ThemeToggleButton } from "./ThemeToggle";
 
 export interface Props {
   isCorePage?: boolean;
@@ -19,11 +19,7 @@ const items = isCorePage ? coreItems : mainItems;
 ---
 
 <div class="spotlight-navbar-container">
-  <nav
-    id="spotlight-nav"
-    class="spotlight-nav"
-    aria-label="Primary"
-  >
+  <nav id="spotlight-nav" class="spotlight-nav" aria-label="Primary">
     <!-- Logo (left side, outside the pill on desktop) -->
     <a href="/" class="spotlight-logo" aria-label="NRVA Home">
       <img
@@ -35,20 +31,19 @@ const items = isCorePage ? coreItems : mainItems;
 
     <!-- Nav Links -->
     <ul class="spotlight-links" id="spotlight-links">
-      {items.map((item, idx) => (
-        <li>
-          <a
-            href={item.href}
-            data-index={idx}
-            class:list={[
-              "spotlight-link",
-              { "is-active": idx === 0 },
-            ]}
-          >
-            {item.label}
-          </a>
-        </li>
-      ))}
+      {
+        items.map((item, idx) => (
+          <li>
+            <a
+              href={item.href}
+              data-index={idx}
+              class:list={["spotlight-link", { "is-active": idx === 0 }]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
 
     <!-- Lighting Layers -->
@@ -59,14 +54,31 @@ const items = isCorePage ? coreItems : mainItems;
 
     <!-- Right side actions -->
     <div class="spotlight-actions">
-      <ThemeToggleButton client:load className="spotlight-theme-btn" variant="circle" start="top-right" />
+      <ThemeToggleButton
+        client:idle
+        className="spotlight-theme-btn"
+        variant="circle"
+        start="top-right"
+      />
 
       <!-- Mobile hamburger -->
-      <button class="spotlight-hamburger" id="spotlight-hamburger" aria-label="Toggle Menu">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line x1="4" y1="7" x2="20" y2="7" class="ham-top"/>
-          <line x1="4" y1="12" x2="20" y2="12" class="ham-mid"/>
-          <line x1="4" y1="17" x2="20" y2="17" class="ham-bot"/>
+      <button
+        class="spotlight-hamburger"
+        id="spotlight-hamburger"
+        aria-label="Toggle Menu"
+      >
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        >
+          <line x1="4" y1="7" x2="20" y2="7" class="ham-top"></line>
+          <line x1="4" y1="12" x2="20" y2="12" class="ham-mid"></line>
+          <line x1="4" y1="17" x2="20" y2="17" class="ham-bot"></line>
         </svg>
       </button>
     </div>
@@ -75,19 +87,18 @@ const items = isCorePage ? coreItems : mainItems;
   <!-- Mobile dropdown -->
   <div class="spotlight-mobile-menu" id="spotlight-mobile-menu">
     <ul>
-      {items.map((item, idx) => (
-        <li>
-          <a
-            href={item.href}
-            class:list={[
-              "spotlight-mobile-link",
-              { "is-active": idx === 0 },
-            ]}
-          >
-            {item.label}
-          </a>
-        </li>
-      ))}
+      {
+        items.map((item, idx) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={["spotlight-mobile-link", { "is-active": idx === 0 }]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </div>
@@ -106,8 +117,12 @@ const items = isCorePage ? coreItems : mainItems;
     // === Spotlight Navbar Logic ===
     const nav = document.getElementById("spotlight-nav");
     const glowEl = document.getElementById("spotlight-glow") as HTMLElement;
-    const ambienceEl = document.getElementById("spotlight-ambience") as HTMLElement;
-    const links = nav?.querySelectorAll(".spotlight-link") as NodeListOf<HTMLElement>;
+    const ambienceEl = document.getElementById(
+      "spotlight-ambience",
+    ) as HTMLElement;
+    const links = nav?.querySelectorAll(
+      ".spotlight-link",
+    ) as NodeListOf<HTMLElement>;
     const hamburger = document.getElementById("spotlight-hamburger");
     const mobileMenu = document.getElementById("spotlight-mobile-menu");
 
@@ -120,7 +135,12 @@ const items = isCorePage ? coreItems : mainItems;
     let isHovering = false;
 
     // Spring interpolation helper
-    function springLerp(current: number, target: number, stiffness = 0.12, damping = 0.85): number {
+    function springLerp(
+      current: number,
+      target: number,
+      stiffness = 0.12,
+      damping = 0.85,
+    ): number {
       const diff = target - current;
       return current + diff * stiffness;
     }
@@ -151,7 +171,7 @@ const items = isCorePage ? coreItems : mainItems;
       links.forEach((link, idx) => {
         const href = link.getAttribute("href") || "";
         const isActive =
-          (href === path) ||
+          href === path ||
           (hash && href.endsWith(hash)) ||
           (idx === 0 && !hash && path === "/");
         link.classList.toggle("is-active", isActive);
@@ -227,9 +247,13 @@ const items = isCorePage ? coreItems : mainItems;
     });
 
     // Clean up on page unload
-    document.addEventListener("astro:before-swap", () => {
-      animating = false;
-    }, { once: true });
+    document.addEventListener(
+      "astro:before-swap",
+      () => {
+        animating = false;
+      },
+      { once: true },
+    );
   });
 </script>
 

@@ -143,19 +143,7 @@ const { title = "NRVA", description = "NRVA Music" } = Astro.props;
         </svg>
       </div>
 
-      <!-- Grain texture -->
-      <svg
-        class="absolute inset-0 w-full h-full opacity-[0.03] mix-blend-overlay"
-      >
-        <filter id="grain"
-          ><feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.8"
-            numOctaves="4"
-            stitchTiles="stitch"></feTurbulence></filter
-        >
-        <rect width="100%" height="100%" filter="url(#grain)"></rect>
-      </svg>
+
 
       <!-- Background atmosphere (Blooms) -->
       <div class="atmospheric-bloom bloom-top-right"></div>
@@ -163,6 +151,22 @@ const { title = "NRVA", description = "NRVA Music" } = Astro.props;
     </div>
 
     <slot />
+
+    <!-- Global Grain Overlay -->
+    <svg
+      class="fixed inset-0 z-[9999] w-full h-full pointer-events-none opacity-[0.05] mix-blend-overlay"
+      aria-hidden="true"
+    >
+      <filter id="global-grain">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.7"
+          numOctaves="3"
+          stitchTiles="stitch"
+        ></feTurbulence>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#global-grain)"></rect>
+    </svg>
   </body>
 </html>
 
