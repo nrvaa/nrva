@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { animate, random, stagger } from 'animejs';
 import { FaInstagram, FaYoutube, FaSpotify, FaApple, FaSoundcloud, FaTwitter } from 'react-icons/fa';
 
 interface PresenceProps {
@@ -8,40 +7,21 @@ interface PresenceProps {
 
 export default function Presence({ images }: PresenceProps) {
     const containerRef = useRef<HTMLDivElement>(null);
-    const orbsRef = useRef<HTMLDivElement[]>([]);
     const cardsRef = useRef<HTMLAnchorElement[]>([]);
 
     useEffect(() => {
-        // 1. Ambient Floating Orbs Animation
-        if (orbsRef.current.length > 0) {
-            animate(orbsRef.current.filter(Boolean), {
-                translateX: () => random(-30, 30),
-                translateY: () => random(-30, 30),
-                scale: () => random(90, 110) / 100,
-                duration: () => random(6000, 10000),
-                easing: 'easeInOutSine',
-                direction: 'alternate',
-                loop: true
-            });
-        }
-
-        // 2. Staggered Reveal on Scroll using IntersectionObserver
+        // Staggered Reveal on Scroll using native IntersectionObserver and CSS transitions
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        // Play staggered entrance animation
                         const cards = cardsRef.current.filter(Boolean);
-                        if (cards.length > 0) {
-                            animate(cards, {
-                                translateY: [40, 0],
-                                opacity: [0, 1],
-                                duration: 1200,
-                                delay: stagger(100, { start: 100 }),
-                                easing: 'easeOutExpo'
-                            });
-                        }
-                        // Unobserve after playing once
+                        cards.forEach((card, i) => {
+                            // Apply a staggered delay via inline style
+                            card.style.transitionDelay = `${(i + 1) * 80}ms`;
+                            card.classList.add('opacity-100', 'translate-y-0');
+                            card.classList.remove('opacity-0', 'translate-y-10');
+                        });
                         if (containerRef.current) observer.unobserve(containerRef.current);
                     }
                 });
@@ -108,33 +88,48 @@ export default function Presence({ images }: PresenceProps) {
     ];
 
     return (
-        <div ref={containerRef} className="relative w-full py-16 px-4 md:px-8 overflow-hidden rounded-[2rem] border border-white/5 bg-black/20 backdrop-blur-3xl shadow-2xl">
-            {/* Ambient Background Orbs */}
-            <div 
-                ref={el => { if (el) orbsRef.current[0] = el }} 
-                className="absolute top-0 left-1/4 w-72 h-72 bg-red-600/30 rounded-full blur-[120px] pointer-events-none -z-10 mix-blend-screen" 
-            />
-            <div 
-                ref={el => { if (el) orbsRef.current[1] = el }} 
-                className="absolute bottom-0 right-1/4 w-80 h-80 bg-purple-600/30 rounded-full blur-[120px] pointer-events-none -z-10 mix-blend-screen" 
-            />
-            <div 
-                ref={el => { if (el) orbsRef.current[2] = el }} 
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px] pointer-events-none -z-10 mix-blend-screen" 
-            />
+        <div ref={containerRef} className="relative w-full py-24 overflow-hidden border-y border-white/10 bg-black/40 backdrop-blur-3xl saturate-[2]">
+            <style>{`
+                @keyframes orb-float-1 {
+                    0% { transform: translate(0, 0) scale(1); border-radius: 40% 60% 70% 30%; }
+                    100% { transform: translate(40px, 40px) scale(1.1); border-radius: 60% 40% 30% 70%; }
+                }
+                @keyframes orb-float-2 {
+                    0% { transform: translate(0, 0) scale(1); border-radius: 60% 40% 30% 70%; }
+                    100% { transform: translate(-40px, -40px) scale(1.2); border-radius: 40% 60% 70% 30%; }
+                }
+                @keyframes orb-float-3 {
+                    0% { transform: translate(-50%, -50%) scale(1); border-radius: 50% 50% 50% 50%; }
+                    100% { transform: translate(calc(-50% + 20px), calc(-50% - 30px)) scale(0.9); border-radius: 70% 30% 50% 50%; }
+                }
+                .animate-orb-1 { animation: orb-float-1 8s ease-in-out infinite alternate; }
+                .animate-orb-2 { animation: orb-float-2 9s ease-in-out infinite alternate; }
+                .animate-orb-3 { animation: orb-float-3 10s ease-in-out infinite alternate; }
+            `}</style>
+            
+            {/* Pure CSS Liquid Background Orbs */}
+            <div className="absolute top-0 left-1/4 w-80 h-80 bg-red-600/40 blur-[90px] pointer-events-none -z-10 mix-blend-color-dodge animate-orb-1" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/40 blur-[100px] pointer-events-none -z-10 mix-blend-color-dodge animate-orb-2" />
+            <div className="absolute top-1/2 left-1/2 w-[30rem] h-[30rem] bg-purple-600/30 blur-[120px] pointer-events-none -z-10 mix-blend-screen animate-orb-3" />
 
-            {/* Optional subtle noise overlay for texture within the card */}
-            <div className="absolute inset-0 opacity-[0.015] pointer-events-none mix-blend-overlay -z-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+            {/* Zero-compute static noise overlay */}
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay -z-10 transform-gpu" style={{ backgroundImage: 'url("/noise.bmp")', backgroundRepeat: 'repeat', backgroundSize: '128px 128px' }}></div>
 
-            <div className="max-w-4xl mx-auto flex flex-col items-center z-10 relative">
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 uppercase font-sans text-shadow-red-900">
-                    Presence
-                </h2>
-                <p className="text-base-content/60 font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-16 text-center">
-                    Connect across frequencies
-                </p>
+            <div className="max-w-6xl mx-auto flex flex-col z-10 relative px-6 md:px-12">
+                <div className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between border-b border-white/10 pb-8 gap-6">
+                    <div>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter uppercase font-sans text-white/90">
+                            Presence
+                        </h2>
+                        <p className="text-base-content/60 font-mono text-xs md:text-sm uppercase tracking-[0.2em] mt-4">
+                            Find <strong>NRVA</strong> anywhere.
+                        </p>
+                    </div>
+                    <div className="w-16 h-[2px] bg-white/20"></div>
+                </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 w-full">
+                {/* 1px gap grid for a wireframe/editorial brutalist look */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-white/10 p-[1px]">
                     {socialLinks.map((link, index) => (
                         <a
                             key={link.id}
@@ -142,18 +137,33 @@ export default function Presence({ images }: PresenceProps) {
                             target="_blank"
                             rel="noopener noreferrer"
                             ref={el => { if (el) cardsRef.current[index] = el }}
-                            className="opacity-0 group relative flex flex-col items-center justify-center p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-1.5 hover:bg-white/10 hover:border-white/20 hover:shadow-[0_8px_32px_0_rgba(255,255,255,0.08)]"
+                            className="hover-3d opacity-0 translate-y-10 bg-black/60 hover:bg-black/40 transition-all duration-[1000ms] ease-out"
                         >
-                            {/* Inner ambient glow on hover */}
-                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                            {/* Main content (Child 1) */}
+                            <div className="group relative flex flex-col p-10 h-full w-full overflow-hidden">
+                                {/* Inner liquid glow on hover */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-overlay"></div>
+                                
+                                <div className="flex items-center justify-between mb-8 pointer-events-none">
+                                    <link.icon className={`w-8 h-8 text-base-content/50 transition-all duration-500 transform group-hover:scale-110 ${link.color}`} />
+                                    <span className="text-white/20 transition-transform duration-500 group-hover:translate-x-1 group-hover:text-white/50">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter" className="w-5 h-5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                    </span>
+                                </div>
+                                
+                                <div className="mt-auto transform transition-transform duration-500 group-hover:translate-x-2 pointer-events-none">
+                                    <h3 className="font-semibold text-xl tracking-tight text-white/80 group-hover:text-white transition-colors duration-500">
+                                        {link.title}
+                                    </h3>
+                                    <span className="block text-xs text-base-content/50 font-mono mt-1 group-hover:text-base-content/90 transition-colors duration-500">
+                                        {link.subtitle}
+                                    </span>
+                                </div>
+                            </div>
                             
-                            <link.icon className={`w-10 h-10 mb-4 text-base-content/70 transition-colors duration-300 ${link.color}`} />
-                            <h3 className="font-semibold text-lg tracking-wide group-hover:text-white transition-colors duration-300">
-                                {link.title}
-                            </h3>
-                            <span className="text-xs text-base-content/50 font-mono mt-2 group-hover:text-base-content/80 transition-colors duration-300">
-                                {link.subtitle}
-                            </span>
+                            {/* 8 empty divs for hover-3d zones */}
+                            <div></div><div></div><div></div><div></div>
+                            <div></div><div></div><div></div><div></div>
                         </a>
                     ))}
                 </div>

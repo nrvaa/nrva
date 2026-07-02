@@ -164,8 +164,9 @@ const items = isCorePage ? coreItems : mainItems;
       nav!.style.setProperty("--spotlight-x", `${x}px`);
     }
 
-    // Determine active item from URL
-    function detectActiveFromURL() {
+    // Determine active item from URL or Scroll
+    function setupScrollSpy() {
+      // First, set initial state from URL
       const path = window.location.pathname;
       const hash = window.location.hash;
       links.forEach((link, idx) => {
@@ -177,9 +178,53 @@ const items = isCorePage ? coreItems : mainItems;
         link.classList.toggle("is-active", isActive);
         if (isActive) activeIndex = idx;
       });
+
+      // Setup IntersectionObserver for smooth scroll updating
+      const sectionMap = new Map();
+      links.forEach((link, idx) => {
+        const href = link.getAttribute("href") || "";
+        if (href.includes("#")) {
+          const id = href.split("#")[1];
+          const section = document.getElementById(id);
+          if (section) sectionMap.set(section, { link, idx });
+        }
+      });
+
+      if (sectionMap.size === 0) return; // Not on a page with trackable sections
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          let visibleSection = null;
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              visibleSection = entry.target;
+            }
+          });
+
+          if (visibleSection) {
+            const data = sectionMap.get(visibleSection);
+            if (data && activeIndex !== data.idx) {
+              links.forEach((l) => l.classList.remove("is-active"));
+              data.link.classList.add("is-active");
+              activeIndex = data.idx;
+              ambienceTarget = getItemCenterX(data.idx);
+              
+              // Sync mobile menu links too
+              if (mobileMenu) {
+                const mobileLinks = mobileMenu.querySelectorAll(".spotlight-mobile-link");
+                mobileLinks.forEach(l => l.classList.remove("is-active"));
+                if (mobileLinks[data.idx]) mobileLinks[data.idx].classList.add("is-active");
+              }
+            }
+          }
+        },
+        { rootMargin: "-30% 0px -50% 0px" } // Triggers when section is in the middle-top of viewport
+      );
+
+      sectionMap.forEach((_, section) => observer.observe(section));
     }
 
-    detectActiveFromURL();
+    setupScrollSpy();
     // Delay init to ensure layout is settled
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {

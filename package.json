@@ -14,6 +14,7 @@
   "dependencies": {
     "@astrojs/react": "^6.0.0",
     "@paper-design/shaders-react": "^0.0.76",
+    "@tailgrids/icons": "^2.0.0",
     "@tailwindcss/vite": "^4.3.2",
     "@types/imagesloaded": "^4.1.7",
     "@types/react": "^19.2.17",

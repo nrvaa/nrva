@@ -22,14 +22,7 @@ import imgUntitled from "../assets/images/Untitled-1.png";
 import imgVert from "../assets/images/VERT_wewewe.webp";
 import imgDieweomom from "../assets/images/dieweomom.webp";
 
-const presenceImages = [
-  imgMhisqWebp.src,
-  imgUILY.src,
-  imgSanctuary.src,
-  imgLikethis.src,
-  imgMonochrome.src,
-  imgIlluminate.src,
-];
+
 ---
 
 <Layout
@@ -222,6 +215,9 @@ const presenceImages = [
             alt="Latest Release"
             class="w-full h-full object-cover"
             loading="lazy"
+            decoding="async"
+            format="webp"
+            quality={80}
           />
         </figure>
         <div class="card-body">
@@ -299,6 +295,9 @@ const presenceImages = [
                       alt="Maybe Hell Is Just a Quieter Place"
                       class="disco-art"
                       loading="lazy"
+                      decoding="async"
+                      format="webp"
+                      quality={80}
                     />
                     <div class="disco-art-overlay"></div>
                     <div class="disco-art-actions">
@@ -340,6 +339,9 @@ const presenceImages = [
                       alt="Until I Lose You"
                       class="disco-art"
                       loading="lazy"
+                      decoding="async"
+                      format="webp"
+                      quality={80}
                     />
                     <div class="disco-art-overlay"></div>
                     <div class="disco-art-actions">
@@ -378,6 +380,9 @@ const presenceImages = [
                       alt="Sanctuary"
                       class="disco-art"
                       loading="lazy"
+                      decoding="async"
+                      format="webp"
+                      quality={80}
                     />
                     <div class="disco-art-overlay"></div>
                     <div class="disco-art-actions">
@@ -414,6 +419,9 @@ const presenceImages = [
                       alt="likethis."
                       class="disco-art"
                       loading="lazy"
+                      decoding="async"
+                      format="webp"
+                      quality={80}
                     />
                     <div class="disco-art-overlay"></div>
                     <div class="disco-art-actions">
@@ -450,6 +458,9 @@ const presenceImages = [
                       alt="Monochrome"
                       class="disco-art"
                       loading="lazy"
+                      decoding="async"
+                      format="webp"
+                      quality={80}
                     />
                     <div class="disco-art-overlay"></div>
                     <div class="disco-art-actions">
@@ -486,6 +497,9 @@ const presenceImages = [
                       alt="ILLUMINATE"
                       class="disco-art"
                       loading="lazy"
+                      decoding="async"
+                      format="webp"
+                      quality={80}
                     />
                     <div class="disco-art-overlay"></div>
                     <div class="disco-art-actions">
@@ -566,6 +580,9 @@ const presenceImages = [
                       alt="ILLENIUM & Ellie Goulding - Don't Want Your Love (NRVA Remix)"
                       class="disco-art"
                       loading="lazy"
+                      decoding="async"
+                      format="webp"
+                      quality={80}
                     />
                     <div class="disco-art-overlay"></div>
                     <div class="disco-art-actions">
@@ -607,6 +624,9 @@ const presenceImages = [
                       alt="Said The Sky - Halfway There (NRVA Remix)"
                       class="disco-art"
                       loading="lazy"
+                      decoding="async"
+                      format="webp"
+                      quality={80}
                     />
                     <div class="disco-art-overlay"></div>
                     <div class="disco-art-actions">
@@ -648,6 +668,9 @@ const presenceImages = [
                       alt="NIKI - You'll Be In My Heart (NRVA Remix)"
                       class="disco-art"
                       loading="lazy"
+                      decoding="async"
+                      format="webp"
+                      quality={80}
                     />
                     <div class="disco-art-overlay"></div>
                     <div class="disco-art-actions">
@@ -689,6 +712,9 @@ const presenceImages = [
                       alt="Marshmello, Avalon, Ellie Goulding - Save My Love (NRVA Remix)"
                       class="disco-art"
                       loading="lazy"
+                      decoding="async"
+                      format="webp"
+                      quality={80}
                     />
                     <div class="disco-art-overlay"></div>
                     <div class="disco-art-actions">
@@ -762,7 +788,7 @@ const presenceImages = [
 
     <!-- Presence -->
     <section id="presence" class="overflow-hidden reveal-on-scroll">
-      <Presence client:visible images={presenceImages} />
+      <Presence client:visible />
     </section>
 
     <div class="flex items-center gap-4 pt-16">
