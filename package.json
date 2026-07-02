@@ -34,5 +34,10 @@
   },
   "devDependencies": {
     "daisyui": "^5.6.6"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }
